@@ -1,7 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-Vue.use(Router)
+import index from '../views/Index.vue'
+
+Vue.use(Router);
 
 //При переходе скролит до верха
 const scrollBehavior = (to, from, savedPosition) => {
@@ -13,10 +15,16 @@ const scrollBehavior = (to, from, savedPosition) => {
   } else {
     return {x: 0, y: 0}
   }
-}
+};
 
 export default new Router({
   mode: 'history',
   scrollBehavior,
-  routes: []
+  routes: [
+    {
+      path: '/',
+      name: 'index',
+      component: index
+    },
+  ]
 })
