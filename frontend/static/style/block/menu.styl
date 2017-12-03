@@ -125,4 +125,175 @@
       }
     }
   }
+  &__list{
+    margin-top: 35px
+    display flex
+    flex-wrap wrap
+    &_item{
+      flex calc( 33.3% - 50px )
+      margin-right: 50px
+      max-width 284px
+      margin-bottom: 35px
+      overflow: hidden
+      &:nth-child(3n + 3){
+        margin-right: 0px
+      }
+      &:hover{
+        .menu__list_hover{
+          opacity:1
+        }
+      }
+    }
+    &_desc{
+      margin-top: 25px
+      font-size: 25px;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #000000;
+      padding-bottom: 10px
+      border-bottom 1px solid black
+      font-family CenturyRegular
+    }
+    &_price{
+      font-size: 21px;
+      font-family CenturyRegular
+      font-weight: 700;
+      color: #ba1125;
+      padding-bottom: 15px
+      padding-top: 10px
+    }
+    &_button{
+      background-color: #de3346;
+      font-size: 17px;
+      font-weight: 700;
+      font-family CenturyRegular
+      color: #ffffff;
+      border none
+      padding: 18px 54px 18px 20px
+      cursor: pointer
+      transition .3s
+      position: relative
+      &:after{
+        content: ''
+        background url("/static/img/basketlist.svg") no-repeat
+        background-size 100%
+        width: 16px
+        height: 16px
+        position: absolute
+        top: 20px
+        right: 20px
+      }
+      &:hover{
+        opacity: .8
+      }
+    }
+    &_cover{
+      height 234px
+      overflow: hidden
+      position: relative
+      display: flex
+      justify-content: center
+      align-items center
+      img{
+        height: 100%
+      }
+    }
+    &_hover{
+      position: absolute
+      width: 100%
+      height: 100%
+      top: 0px
+      left: 0px
+      display: flex
+      flex-direction column
+      transition .3s
+      opacity: 0
+      background-color rgba(0, 0, 0, 0.45)
+      &-top{
+        width: 100%
+        height: 170px
+        text-align center
+        position: relative
+        font-size: 28px;
+        color: white
+        padding-top: 40px
+        font-family YanoneRegular
+        background-color: rgba(184, 17, 37, 0);
+        cursor: pointer
+        &:hover{
+          background-color: rgba(184, 17, 37, 0.72);
+
+        }
+        &:after{
+          content: ''
+          position: absolute
+          top: 42px
+          right: 20px
+          background url("/static/img/lypa.png") no-repeat
+          background-size 100%
+          width: 23px
+          height: 24px
+
+        }
+      }
+      &-bottom{
+        cursor: pointer
+        font-family YanoneRegular
+        font-size: 28px;
+        color: white
+        padding-top: 32px
+        width: 100%
+        height: 170px
+        text-align center
+        position: relative
+        transition: .3s
+        background-color: rgba(184, 17, 37, 0);
+        &:hover{
+          background-color: rgba(184, 17, 37, 0.72);
+
+        }
+        &:after{
+          content: ''
+          position: absolute
+          top: 32px
+          right: 20px
+          background url("/static/img/fire.png") no-repeat
+          background-size 100%
+          width: 31px
+          height: 31px
+        }
+      }
+    }
+  }
+  &__pagination{
+    display: flex
+    justify-content: center
+    align-items: center
+    margin-top: 40px
+    &_item{
+      width: 44px
+      margin-right: 4px
+      line-height 40px
+      font-size: 21px;
+      color: #010101;
+      border: 1px solid #000000;
+      text-align: center
+      font-family CenturyRegular
+      transition .3s
+      cursor: pointer
+      &:hover{
+        color: #de3346
+        border: 1px solid #de3346;
+      }
+      &-active{
+        border: 1px solid #de3346
+        color: white
+        background-color #de3346
+        cursor: default
+        &:hover{
+          color: white
+        }
+      }
+    }
+  }
 }

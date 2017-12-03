@@ -3,6 +3,7 @@ import Router from 'vue-router'
 
 import index from '../views/Index.vue'
 import menu from '../views/Menu.vue'
+import item from '../views/Item.vue'
 
 Vue.use(Router);
 
@@ -30,6 +31,10 @@ export default new Router({
       path: '/menu',
       name: 'menu',
       component: menu
+    },{
+      path: '/item',
+      name: 'item',
+      component: item
     },
   ]
 })

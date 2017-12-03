@@ -1,0 +1,204 @@
+.item{
+  margin-bottom: 130px
+  &__wrapper{
+    display: flex
+  }
+  &__cover{
+    flex: 53%
+    img{
+      width: 100%
+    }
+  }
+  &__text{
+    flex 47%
+    margin-left: 40px
+  }
+  &__title{
+    font-size: 25px;
+    color: #000000;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-family CenturyRegular
+    margin-bottom: 20px
+  }
+  &__price{
+    font-size: 25px;
+    font-weight: 700;
+    color: #ba1125;
+    padding-bottom: 20px
+    border-bottom: 1px solid black
+    font-family CenturyRegular
+  }
+  &__list{
+    border-bottom: 1px solid black
+    &-li{
+      font-size: 17px;
+      font-weight: 400;
+      line-height: 25px;
+      font-family CenturyRegular
+    }
+  }
+  &__button{
+    margin-top: 20px
+    margin-bottom: 30px
+    display: flex
+    &_left{
+      display: flex
+      align-items: center
+    }
+    &-text{
+      font-size: 33px;
+      font-family CenturyRegular
+      padding-right: 20px
+      padding-left: 20px
+    }
+    &-sum{
+      border: 1px solid #000000;
+      width: 60px;
+      line-height: 64px
+      font-size: 33px;
+      font-family CenturyRegular
+      text-align center
+      background-color rgba(255, 255, 255, 0)
+      transition .3s
+      cursor: pointer
+      &:hover{
+        background-color rgba(0,0,0, 1)
+        color: white
+      }
+    }
+  }
+  &-button{
+    background-color: #de3346;
+    font-size: 17px;
+    font-weight: 700;
+    font-family CenturyRegular
+    color: #ffffff;
+    border none
+    padding: 24px 60px 23px 27px;
+    cursor: pointer
+    transition .3s
+    margin-left: 40px
+    position: relative
+    &:after{
+      content: ''
+      background url("/static/img/basketlist.svg") no-repeat
+      background-size 100%
+      width: 16px
+      height: 16px
+      position: absolute
+      top: 25px
+      right: 20px
+    }
+    &:hover{
+      opacity: .8
+    }
+  }
+  &__teg{
+    &-text{
+      color: #000000;
+      font-size: 17px;
+      font-family CenturyRegular
+      padding-top 4px
+      span{
+        font-weight: 700;
+        padding-right: 10px
+      }
+      a{
+        text-decoration: underline;
+        transition .3s
+        color: #000000
+        &:hover{
+          color: #de3346;
+        }
+      }
+    }
+  }
+  &__desc{
+    margin-top: 45px
+    border: 1px solid #a3a3a3;
+    padding: 30px 40px
+    &-title{
+      font-family CenturyRegular
+      font-size: 25px;
+      text-transform: uppercase;
+      color: #ba1125;
+      font-weight bold
+      padding-bottom: 20px
+      border-bottom: 1px solid #000000;
+    }
+    &-text{
+      margin-top: 30px
+      font-family YanoneRegular
+      font-size: 25px;
+      color: #585858;
+    }
+  }
+  &__rec{
+    margin-top: 60px
+    &-title{
+      font-size: 38px;
+      font-weight: 400;
+      font-family YanoneRegular
+      text-transform: uppercase;
+      color: #000000;
+      border-bottom: 1px solid black
+      position: relative
+      padding-bottom: 17px
+    }
+    &-prev{
+      position: absolute
+      width: 35px
+      height: 35px
+      right: 50px
+      top: 0px
+      background-color: #ba1125;
+      cursor: pointer
+      transition .3s
+      &:hover{
+        opacity: .8
+      }
+      &:after{
+        content: ''
+        position: absolute
+        background url("/static/img/rec1.png") no-repeat
+        background-size 10px 19px
+        background-position center
+        width: 32px
+        height: 35px
+        top: 0px
+        left 0px
+      }
+    }
+    &-next{
+      position: absolute
+      width: 35px
+      height: 35px
+      right: 0px
+      top: 0px
+      background-color: #ba1125;
+      cursor: pointer
+      transition .3s
+      &:hover{
+        opacity: .8
+      }
+      &:after{
+        content: ''
+        position: absolute
+        background url("/static/img/rec1.png") no-repeat
+        background-size 10px 19px
+        background-position center
+        width: 32px
+        height: 35px
+        transform rotate(180deg)
+        top: 0px
+        left 0px
+      }
+    }
+    &_list{
+      margin-top:  30px
+      display flex
+    }
+  }
+
+}
