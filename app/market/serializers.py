@@ -26,8 +26,16 @@ class GoodsSerializer(serializers.ModelSerializer):
         ]
 
 
+class CategoryGoodsSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Category
+        fields = ['id', 'name', 'slug',]
+
+
 class GoodsDetailSerializer(serializers.ModelSerializer):
-    goods_tag = TagsSerializer(many=True, required=False)
+    tag = TagsSerializer(many=True, required=False)
+    category = CategoryGoodsSerializer(many=True, required=False)
 
     class Meta:
         model = Goods
@@ -41,7 +49,7 @@ class GoodsDetailSerializer(serializers.ModelSerializer):
             'cover',
             'is_active',
             'is_main',
-            'goods_tag'
+            'tag',
             'related_goods',
             'meta_title',
             'meta_description',
