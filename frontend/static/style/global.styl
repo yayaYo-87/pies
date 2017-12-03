@@ -1,0 +1,235 @@
+@import "block/fonts.styl"
+@import "block/Header.styl"
+@import "block/index.styl"
+@import "block/slider.styl"
+@import "block/indexMenu.styl"
+@import "block/indexPopular.styl"
+@import "block/indexAbout.styl"
+@import "block/indexOrder.styl"
+@import "block/indexImage.styl"
+@import "block/indexEnd.styl"
+@import "block/fonts.styl"
+@import "block/footer.styl"
+@import "block/menu.styl"
+@import "block/item.styl"
+
+.app{
+  font-family BeerRegular
+}
+
+.rubl {
+  font-family: PTSansRegular
+}
+
+body, html {
+  margin: 0
+  padding: 0
+  height 100%
+  min-height: 100%;
+  min-width: 1240px
+  font-family: "PTSansRegular"
+  color: #000;
+}
+
+h1{
+  color: #303942;
+  font-weight normal
+  font-family BeerRegular
+  font-size: 26px
+  line-height: 33px
+}
+h3{
+  color: #303942;
+  font-size: 19px
+  line-height: 25px
+  font-weight normal
+  font-family BeerRegular
+}
+h2{
+  font-size: 22px
+  line-height: 28px
+  color: #303942;
+  font-weight normal
+  font-family BeerRegular
+}
+.dn{
+  display none !important
+}
+
+a{
+  text-decoration none
+  color: #969696;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+
+}
+.ruble{
+  font-family: 'PTSans', serif;
+}
+.error{
+  position: fixed
+  width: 100%
+  height:  100%
+  background-color rgba(0,0,0,.2)
+  display: flex
+  top: 0px
+  left: 0px
+  justify-content: center
+  align-items center
+  z-index: 999
+  &-wrapper{
+    width: 500px
+    background-color white
+    padding: 40px
+    text-align center
+  }
+}
+
+.noSupport{
+  width: 100%;
+  height: 100%;
+  display: table;
+  position: fixed;
+  z-index: 10000
+  top: 0;
+  left: 0;
+  background-color rgba(0, 0, 0, 0.5)
+  &_wrapper{
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+  }
+  &_block{
+    display: inline-block
+    background-color white
+    padding: 20px
+    width: 500px
+  }
+  &-title{
+    font-size 20px
+    padding-bottom: 10px
+  }
+}
+
+.router-enter-active {
+  transition: all .5s ease;
+}
+.router-leave-active {
+  transition: all .5s ease;
+}
+.router-enter, .router-leave-to{
+  opacity: 0;
+  transform scale(.9)
+}
+.popup-enter-active {
+  transition: all .3s ease;
+}
+.popup-leave-active {
+  transition: all .3s ease;
+}
+.popup-enter, .popup-leave-to{
+  opacity: 0;
+}
+
+.routerw-enter-active {
+  transition: all .5s ease;
+}
+.routerw-leave-active {
+  transition: all .5s ease;
+}
+.routerw-enter, .routerw-leave-to{
+  opacity: 0;
+}
+.tinkoffPayRow{
+  display:block;
+  margin:1%;
+  width:160px;
+}
+
+.popup{
+  position fixed
+  width:  280px
+  line-height:  45px
+  font-size 18px
+  color: #464342
+  background-color white
+  top: 50%
+  font-family:  'MuseoSansMedium'
+  text-align center
+  left: calc(50% - 140px)
+  z-index: 20
+  animation: popup 3s linear ;
+  box-shadow 0px 0px 4px 2px rgba(0, 0, 0, 0.2)
+}
+
+@keyframes popup {
+  0% {
+    top: 50%
+  }
+  50% {
+    top: 50%
+    opacity: 1
+    transform scale(1)
+  }
+  100% {
+    opacity: 0
+  }
+}
+
+.button{
+  display: block;
+  color: #ffffff;
+  height: 30px;
+  text-align: center;
+  background-color #6582a0;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  border-radius: 4px;
+  &:hover{
+    span{
+      text-decoration: underline
+    }
+  }
+  span{
+    font-size 12px
+    line-height: 30px
+    font-family: MerriweatherRegular
+  }
+}
+
+::-webkit-scrollbar-button {
+  background-repeat:no-repeat;
+  width:5px;
+  height:0px
+}
+
+::-webkit-scrollbar-track {
+  background-color: #d6d6d6
+}
+
+::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 0px;
+  border-radius: 0px;
+  background-color: #6b6b6b;
+}
+
+::-webkit-scrollbar-thumb:hover{
+  background-color: #767676;
+}
+
+::-webkit-resizer{
+  background-repeat:no-repeat;
+  width:4px;
+  height:0px
+}
+
+::-webkit-scrollbar{
+  width: 6px;
+  height: 6px;
+}

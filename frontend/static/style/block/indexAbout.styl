@@ -1,0 +1,117 @@
+.index__about{
+  margin-top: 80px
+  position: relative
+  &_title {
+    width: 100%
+    display: flex
+    justify-content: center
+    align-items center
+    margin-bottom: 30px
+    &:after{
+      content: ''
+      position: absolute
+      top: -60px
+      right: 23px
+      width: 150px
+      height: 348px
+      background url("/static/img/pomidor.png") no-repeat
+      background-size 100%
+      z-index: 0
+    }
+    &:before{
+      content: ''
+      position: absolute
+      top: 45px
+      left: 0px
+      width: 206px
+      height: 316px
+      background url("/static/img/about12.png") no-repeat
+      background-size 100%
+      z-index: 0
+    }
+    &-text{
+      font-size: 71px;
+      text-align center
+      color: #fefefe;
+      line-height: 85px
+      border-top: 4px solid white
+      text-transform uppercase
+      position: relative
+
+    }
+  }
+  &_wrapper{
+    max-width: 1100px
+    margin: 0 auto
+    .swiper-button-prev{
+      position: absolute
+      background url("/static/img/arrorabout.png") no-repeat
+      background-size 100%
+      width: 24px
+      height: 45px
+      right: 67px;
+      top: auto;
+      left: auto;
+      bottom: 14px;
+    }
+    .swiper-button-next{
+      position: absolute
+      background url("/static/img/arrorabout.png") no-repeat
+      background-size 100%
+      width: 24px
+      transform rotate(180deg)
+      height: 45px
+      right: 10px;
+      top: auto;
+      left: auto;
+      bottom: 14px;
+    }
+    .swiper-container{
+      position: relative
+      &:after{
+        content ''
+        position absolute
+        background url("/static/img/slider312.png") no-repeat
+        background-size 100%
+        width: 64px
+        height: 50px
+        top: 0px
+        right: 0px
+      }
+    }
+  }
+  &-slider{
+    max-width: 1100px
+    padding-top: 60px
+    padding-bottom: 60px
+    display: flex
+    align-items center
+
+  }
+  &_img{
+
+    max-width: 100px
+    margin-right 42px
+    img{
+      width: 100%
+
+    }
+  }
+  &-text{
+    flex 70%
+    padding-right: 80px
+    font-size: 30px;
+    font-weight: 700;
+    font-family YanoneRegular
+    color white
+  }
+}
+
+@media (max-width: 1440px){
+  .index__about_wrapper{
+    max-width:900px
+  }
+  .index__about-slider{
+    max-width: 900px
+  }
+}

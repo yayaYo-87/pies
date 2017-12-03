@@ -1,0 +1,169 @@
+.footer{
+  background-color: #1f1f1f;
+  width: 100%
+  position: relative
+  z-index: 4
+  &:after{
+    content: ''
+    position: absolute
+    top: -10px
+    left: 0px
+    background url("/static/img/tooth_brown.png")
+    background-repeat repeat-x
+    background-size  25px
+    width: 100%
+    height: 15px
+    z-index: 10
+  }
+  &__wrapper{
+    max-width: 1000px
+    margin: 0 auto
+    padding-top: 60px
+    padding-bottom: 45px
+    display: flex
+    position: relative
+    z-index: 2
+    justify-content: space-between
+  }
+  &__list{
+    border-right: 2px solid white
+    padding-right: 86px
+    &-item{
+      font-size: 13px;
+      font-family CenturyRegular
+      line-height: 29px;
+      text-transform: uppercase;
+      color: #ffffff;
+      font-weight: 700;
+      cursor: pointer
+      transition  .3s
+
+      &:hover{
+        color: #ba1125
+      }
+    }
+  }
+  &__contacts{
+    text-align left
+    border-right: 2px solid white
+    padding-right: 68px
+    padding-left: 40px
+    &-item{
+      font-size: 13px;
+      font-family CenturyRegular
+      line-height: 29px;
+      text-transform: uppercase;
+      color: #ffffff;
+      font-weight: 700;
+    }
+    &-tel{
+      margin-top:  5px
+      display: block
+      font-size: 13px;
+      font-family CenturyRegular
+      line-height: 29px;
+      text-transform: uppercase;
+      color: #ffffff;
+      cursor: pointer
+      transition  .3s
+      &:hover{
+        color: #ba1125
+      }
+    }
+    &_date{
+      margin-top: 15px
+      color: #bdbdbd;
+      font-family CenturyRegular
+      font-size 13px
+
+    }
+  }
+  &__soc{
+    border-right: 2px solid white
+    padding-right: 50px
+    padding-left: 20px;
+    &-item{
+      display: block
+      font-weight: 700
+      font-size: 13px;
+      font-family CenturyRegular
+      line-height: 29px;
+      text-transform: uppercase;
+      color: #ffffff;
+      margin-bottom: 30px
+      text-align center
+    }
+    &-image{
+      display: flex
+    }
+    &-cover{
+      cursor: pointer
+      margin-right: 5px
+      transition .3
+      opacity: 1
+      &:hover{
+        opacity: .7
+      }
+    }
+  }
+  &__order{
+    &-item{
+      font-size: 13px;
+      font-family CenturyRegular
+      line-height: 29px;
+      text-transform: uppercase;
+      color: #ffffff;
+      font-weight: 700;
+    }
+    &_cover{
+      margin-top: 10px
+      display: flex
+      justify-content: center
+      align-items center
+      flex-direction column
+      img{
+        display: block
+        padding-top: 10px
+        width: 127px
+        cursor: pointer
+      }
+    }
+  }
+  &__cop{
+    padding-top: 20px
+    padding-bottom: 40px
+    width: 100%
+    display: flex
+    align-items center
+    justify-content: center
+    position: relative
+    &:before{
+      content: ''
+      position: absolute
+      bottom: 0px
+      left: 0px
+      width: 100%
+      background url("/static/img/footer.png") no-repeat
+      background-size 100%
+      background-position bottom
+      height: 350px
+
+    }
+    &-icon{
+      font-size: 13px;
+      font-family CenturyRegular
+      color: #ffffff;
+      position: relative
+      &:after{
+        content ''
+        position: absolute
+        background url("/static/img/soc1.png") no-repeat
+        background-size 100%
+        width: 27px
+        height: 23px
+        top: -5px
+        right: -40px
+      }
+    }
+  }
+}
