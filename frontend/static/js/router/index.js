@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 import index from '../views/Index.vue'
+import menu from '../views/Menu.vue'
 
 Vue.use(Router);
 
@@ -25,6 +26,10 @@ export default new Router({
       path: '/',
       name: 'index',
       component: index
+    },{
+      path: '/menu',
+      name: 'menu',
+      component: menu
     },
   ]
 })

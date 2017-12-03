@@ -23,6 +23,7 @@
   import indexEnd from '../components/IndexEnd.vue'
 
   export default {
+    name: 'index',
     data() {
       return {
       }

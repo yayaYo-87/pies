@@ -9,7 +9,7 @@
         <router-link tag="h1"  :to="{ name: 'index' }">Всё о пирогах</router-link>
           <div class="header__items">
             <router-link :to="{ name: 'index' }" class="header__item">Главная</router-link>
-            <div class="header__item">Меню</div>
+            <router-link :to="{ name: 'menu' }" class="header__item">Меню</router-link>
             <div class="header__item">О нас</div>
             <div class="header__item">Скидки</div>
             <div class="header__item">Доставка</div>

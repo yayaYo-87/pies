@@ -1,0 +1,128 @@
+.menu{
+  margin-bottom: 90px
+  &__wrapper{
+    max-width: 1200px
+    margin: 0 auto
+    margin-top: 80px
+    display: flex
+  }
+  &__filter{
+    width: 100%
+    display: flex
+    justify-content: space-between
+    height: 80px
+    align-items center
+    border: 1px solid #929292;
+    padding: 20px 20px 20px 30px
+    &_icon{
+      display: flex
+      align-items center
+      &-left{
+        margin-right:20px
+        cursor: pointer
+        width: 19px
+        height: 19px
+      }
+      &-right{
+        cursor: pointer
+        width: 19px
+        height: 19px
+      }
+    }
+    &_count{
+      font-size: 17px;
+      color: #4f4f4f;
+      font-family CenturyRegular;
+    }
+    &_select{
+      select{
+        border: 1px solid #929292;
+        height: 36px
+        padding-left  27px
+        padding-right 84px
+        font-family CenturyRegular;
+        font-size 17px
+      }
+    }
+  }
+  &__left{
+    flex: calc(100% - 18% - 50px);
+    margin-right: 50px
+
+  }
+  &__right{
+    flex: 18%
+    &-title{
+      font-size: 33px;
+      color: #000000;
+      text-transform: uppercase;
+      font-family YanoneRegular
+      position: relative
+      margin-bottom: 35px
+      &:after{
+        content: ''
+        position: absolute
+        bottom: -10px
+        height: 4px
+        width: 50px
+        left: 0px
+        background-color: #de3346;
+      }
+    }
+    &_search{
+      position: relative
+      margin-bottom: 25px
+      &:after{
+        content: ''
+        position: absolute
+        background url("/static/img/inputsearch.png") no-repeat
+        background-size 100%
+        width: 16px
+        height: 17px
+        top: 16px;
+        right: 17px;
+      }
+      input{
+        font-size: 17px;
+        font-family YanoneRegular
+        border: 1px solid #5c5c5d;
+        padding: 14px 16px
+        width: 100%
+        position: relative
+      }
+    }
+    &_item{
+      font-size: 17px;
+      font-family CenturyRegular;
+      color: #000000;
+      width: 100%
+      line-height: 42px
+      border-bottom: 1px solid #a3a3a3;
+      cursor: pointer
+      position: relative
+      padding-left: 20px
+      transition .3s
+      &:hover{
+        color: #ba1125
+      }
+      &:after{
+        content: ''
+        position: absolute
+        background url("/static/img/catalogstrelka.png") no-repeat
+        background-size 100%
+        top: 15px
+        left: 0px
+        width: 8px
+        height: 14px
+        opacity: 1
+        transition .3s
+      }
+      &-active{
+        padding-left: 0px
+        &:after{
+          opacity: 0
+        }
+      }
+    }
+  }
+}
