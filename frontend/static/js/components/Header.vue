@@ -10,11 +10,11 @@
           <div class="header__items">
             <router-link :to="{ name: 'index' }" class="header__item">Главная</router-link>
             <router-link :to="{ name: 'menu' }" class="header__item">Меню</router-link>
-            <div class="header__item">О нас</div>
-            <div class="header__item">Скидки</div>
-            <div class="header__item">Доставка</div>
-            <div class="header__item">Отзывы</div>
-            <div class="header__item">Контакты</div>
+            <router-link :to="{ name: 'about' }" class="header__item">О нас</router-link>
+            <router-link :to="{ name: 'discount' }" class="header__item">Скидки</router-link>
+            <router-link :to="{ name: 'shipping' }" class="header__item">Доставка</router-link>
+            <router-link :to="{ name: 'comment' }" class="header__item">Отзывы</router-link>
+            <router-link :to="{ name: 'contacts' }" class="header__item">Контакты</router-link>
           </div>
       </div>
       <div class="header__basket">
