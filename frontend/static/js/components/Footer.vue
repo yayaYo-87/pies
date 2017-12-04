@@ -15,6 +15,7 @@
         <a href="tel:+7 (495) 369-37-45" class="footer__contacts-tel">+7 (495) 369-37-45</a>
         <div class="footer__contacts_date">пн-сб: с 9:00 до 21:00</br>вс: с 10:00 до 21:00</div>
       </div>
+
       <div class="footer__soc">
         <div class="footer__soc-item">Присоединяйся к нам</div>
         <div class="footer__soc_image">
