@@ -9,6 +9,7 @@ import shipping from '../views/Shipping.vue'
 import contacts from '../views/Contacts.vue'
 import about from '../views/About.vue'
 import comment from '../views/Comments.vue'
+import basket from '../views/Basket.vue'
 
 Vue.use(Router);
 
@@ -47,6 +48,10 @@ export default new Router({
     },{
       path: '/menu',
       redirect: '/menu/all',
+    },{
+      path: '/basket',
+      name: 'basket',
+      component: basket
     },{
       path: '/menu/:id/:item',
       name: 'item',
