@@ -41,11 +41,14 @@ export default new Router({
       name: 'shipping',
       component: shipping
     },{
-      path: '/menu',
+      path: '/menu/:id',
       name: 'menu',
       component: menu
     },{
-      path: '/item',
+      path: '/menu',
+      redirect: '/menu/all',
+    },{
+      path: '/menu/:id/:item',
       name: 'item',
       component: item
     },{
