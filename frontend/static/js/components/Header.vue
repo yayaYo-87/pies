@@ -17,7 +17,7 @@
             <router-link :to="{ name: 'about' }" class="header__item">О нас</router-link>
             <router-link :to="{ name: 'discount' }" class="header__item">Скидки</router-link>
             <router-link :to="{ name: 'shipping' }" class="header__item">Доставка</router-link>
-            <router-link :to="{ name: 'comment' }" class="header__item">Отзывы</router-link>
+            <!--<router-link :to="{ name: 'comment' }" class="header__item">Отзывы</router-link>-->
             <router-link :to="{ name: 'contacts' }" class="header__item">Контакты</router-link>
           </div>
       </div>

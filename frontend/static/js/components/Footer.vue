@@ -3,7 +3,7 @@
     <div class="footer__wrapper">
       <div class="footer__list">
         <router-link tag="div" :to="{ name: 'index' }" class="footer__list-item">Главная</router-link>
-        <router-link tag="div" :to="{ name: 'menu' }" class="footer__list-item">Меню</router-link>
+        <router-link tag="div" :to="{ name: 'menu', params:{id: 'all'} }" class="footer__list-item">Меню</router-link>
         <router-link tag="div" :to="{ name: 'about' }" class="footer__list-item">О нас</router-link>
         <router-link tag="div" :to="{ name: 'discount' }" class="footer__list-item">Скидки</router-link>
         <router-link tag="div" :to="{ name: 'shipping' }" class="footer__list-item">Доставка</router-link>
