@@ -25,7 +25,9 @@
         <div class="basket__wrapper">
             <div class="basket__error">
                 <div class="basket__error-text">Ваша корзина пуста :(</div>
-                <button class="basket__button">Вернуться в меню</button>
+                <router-link
+                        tag="button"
+                        :to="{ name: 'menu', params: {id: 'all'} }" class="basket__button">Вернуться в меню</router-link>
             </div>
         </div>
     </div>

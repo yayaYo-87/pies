@@ -80,7 +80,9 @@
             </div>
             </div>
         </div>
-        <button class="popular_button">Перейти в каталог</button>
+        <router-link :to="{ name: 'menu', params: {id: 'all'} }"
+                     tag="button"
+                     class="popular_button">Перейти в каталог</router-link>
     </div>
 </template>
 

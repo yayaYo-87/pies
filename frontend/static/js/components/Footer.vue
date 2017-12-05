@@ -34,7 +34,6 @@
       </div>
     </div>
     <div class="footer__cop">
-      <div class="footer__cop-icon">©2017 Все права защищены. Разработка сайта German Web</div>
     </div>
   </div>
 </template>
