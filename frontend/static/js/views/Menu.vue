@@ -16,24 +16,6 @@
 
         <div class="menu__wrapper">
             <div class="menu__left">
-                <div class="menu__filter">
-                    <div class="menu__filter_icon">
-                        <img class="menu__filter_icon-left" src="/static/img/filter.png" alt="cover">
-                        <img class="menu__filter_icon-right" src="/static/img/filter1.png" alt="cover">
-                    </div>
-                    <div class="menu__filter_count">
-                        Показан{{ countProduct | pluralize(' ','ы')}}
-                        <span v-if="countProduct >= 9"> 1-9 из</span>
-                        {{countProduct }} товар{{ countProduct | pluralize(' ', 'а', 'а', 'а','ов')}}
-                    </div>
-                    <div class="menu__filter_select">
-                        <select name="sel" id="sel">
-                            <option >По умолчанию</option>
-                        </select>
-                    </div>
-                </div>
-
-
                 <div class="menu__list">
                     <div class="menu__list_item" v-for="item in resultProduct">
                         <div class="menu__list_cover">

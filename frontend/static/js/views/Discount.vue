@@ -17,7 +17,7 @@
             <p><span class="discount_border">Обращаем Ваше внимание:</span> скидка не отображается в корзине, а учитывается оператором в процессе оформления заказа.</p>
             <p>Желаем Вам хорошего настроения и ждем Вас снова на сайте нашей Пекарни!</p>
 
-            <router-link :to="{ name:'menu' }" class="discount_button">Перейти в меню</router-link>
+            <router-link :to="{ name:'menu', params: {id: 'all'} }" class="discount_button">Перейти в меню</router-link>
         </div>
     </div>
 </template>

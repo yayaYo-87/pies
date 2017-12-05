@@ -1,9 +1,5 @@
 <template>
     <div class="menu__right">
-        <div class="menu__right-title">Поиск</div>
-        <div class="menu__right_search">
-            <input type="text" placeholder="Введите название...">
-        </div>
         <div class="menu__right-title">Категории</div>
         <div class="menu__right_list">
             <router-link
