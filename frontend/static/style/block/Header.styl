@@ -34,14 +34,13 @@
   &__phone{
     flex: 20%
     margin-top: 65px
-    margin-left: 56px
-    padding-left: 80px
+    padding-left: 110px
     position: relative
     &:after{
       content: ''
       position: absolute
       top: 0px
-      left: 0px
+      left: 30px
       width: 64px
       height: 64px
       background url('/static/img/icon/phone.svg') no-repeat
@@ -61,6 +60,10 @@
       font-family CenturyRegular
       margin-bottom: 15px
       display: block
+      transition .3s
+      &:hover{
+        color: #ba1125
+      }
     }
 
   }
@@ -75,6 +78,7 @@
       background-size 100%
       width: 64px
       height: 64px
+      cursor: pointer
       position: relative
       &-count{
         position: absolute
@@ -102,7 +106,7 @@
     display: flex
     border-top: 4px solid black
     justify-content: space-between
-    max-width 830px
+    max-width: 700px;
     margin: 0 auto
     .router-link-exact-active{
       color: #000000;
@@ -198,19 +202,10 @@
         left 0px
         width: 100%
         height: 150px
-        background url("/static/img/headermini.png")  no-repeat
-        background-size 100%
-        background-position top
+        background url("/static/img/fon-min.jpg")
+        background-size: 626px;
+        background-position: center;
       }
-    }
-  }
-}
-
-@media (max-width: 1680px) {
-  .header__phone{
-    margin-left: 20px
-    &:after{
-      left: 7px;
     }
   }
 }

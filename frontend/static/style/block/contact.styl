@@ -1,0 +1,149 @@
+.contacts{
+  &__wrapper{
+    max-width: 1200px
+    margin 0px auto
+    margin-top: 85px
+    margin-bottom: 100px
+    display: flex
+
+  }
+  &__left{
+    flex: 35%
+  }
+  &__right{
+    flex 65%
+  }
+  &__title{
+    font-size: 33px;
+    color: #000000;
+    text-transform: uppercase;
+    font-family YanoneRegular
+    position: relative
+    margin-bottom: 35px
+    &:after{
+      content: ''
+      position: absolute
+      bottom: -10px
+      height: 4px
+      width: 50px
+      left: 0px
+      background-color: #de3346;
+    }
+  }
+  &__item{
+    margin-top: 20px
+    &:first-child{
+      margin-top: 0px
+    }
+    &_title{
+      font-size: 29px;
+      font-family YanoneRegular
+      color: #000000;
+      font-weight bold
+
+    }
+    &_desc{
+      padding-left: 38px
+      display: flex
+      flex-direction column
+      align-items left
+      margin-top 13px
+      a{
+        font-size: 17px;
+        display: inline-block
+        font-family CenturyRegular
+        padding-bottom: 10px
+        transition .3s
+        &:hover{
+          color:#de3346
+        }
+      }
+      p{
+        font-size: 17px;
+        color: #616161;
+        font-family CenturyRegular
+        margin: 0
+      }
+    }
+    &-icon{
+      width: 24px
+      height: 24px
+      margin-right 10px
+      display: inline-block
+      img{
+        width: 100%
+      }
+    }
+    &-bold{
+      font-weight: 700;
+    }
+    &-bot{
+      padding-bottom: 10px
+    }
+    &_social{
+      padding-left: 30px
+      display: flex
+      margin-top: 22px
+      a{
+        margin-right: 15px
+        display: inline-block
+        transition .3s
+        cursor: pointer
+        width: 30px
+        height: 30px
+        img{
+          width: 100%
+        }
+        &:hover{
+          opacity: .5
+        }
+      }
+    }
+  }
+  &__form{
+    margin-top: 30px
+    &_input{
+      display: flex
+      justify-content: space-between
+    }
+    .form_input{
+      font-size: 17px;
+      font-family YanoneRegular
+      color black
+      width: 100%
+      border: 1px solid #5c5c5d;
+      padding: 19px 16px 16px 18px
+      margin-right: 30px
+      margin-bottom: 30px
+      &:last-child{
+        margin-right: 0px
+      }
+    }
+    &_textarea{
+      textarea{
+        font-family YanoneRegular
+        font-size: 17px
+        border: 1px solid #5c5c5d;
+        padding: 19px 16px 16px 18px
+        width: 100%
+        max-width: 780px
+        max-height: 140px
+      }
+    }
+    &_button{
+      background-color: #de3346;
+      font-size: 17px;
+      font-family CenturyRegular
+      border none
+      padding: 25px 30px
+      margin-top: 20px
+      font-weight: 700;
+      color: #ffffff;
+      cursor pointer
+      transition .3s
+      &:hover{
+        opacity: .5
+      }
+    }
+  }
+}

@@ -12,6 +12,11 @@
 @import "block/footer.styl"
 @import "block/menu.styl"
 @import "block/item.styl"
+@import "block/discount.styl"
+@import "block/Shipping.styl"
+@import "block/contact.styl"
+@import "block/about.styl"
+@import "block/basket.styl"
 
 .app{
   font-family BeerRegular
@@ -20,7 +25,9 @@
 .rubl {
   font-family: PTSansRegular
 }
-
+.wrapper{
+  min-height: 100%
+}
 body, html {
   margin: 0
   padding: 0
@@ -117,14 +124,14 @@ body {
 }
 
 .router-enter-active {
-  transition: all .5s ease;
+  transition: all .6s ease;
 }
 .router-leave-active {
-  transition: all .5s ease;
+  transition: all .7s ease-out;
 }
 .router-enter, .router-leave-to{
   opacity: 0;
-  transform scale(.9)
+  transform scale(.98)
 }
 .popup-enter-active {
   transition: all .3s ease;

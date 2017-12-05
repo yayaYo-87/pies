@@ -5,20 +5,23 @@
                 <div class="header__mini_title">Меню</div>
                 <div class="header__mini_list">
                     <router-link :to="{ name: 'index' }" class="header__mini_item">Главная ></router-link>
-                    <div class="header__mini_item ">Меню ></div>
-                    <div class="header__mini_item header__mini_item-active">LOREM IPSUM PIE</div>
+                    <router-link
+                            v-if="result.length !== 0"
+                            :to="{ name: 'menu', params: {id: result.category[0].slug } }"
+                            class="header__mini_item ">{{ result.category[0].name }} ></router-link>
+                    <div class="header__mini_item header__mini_item-active">{{ result.name }}</div>
                 </div>
             </div>
         </div>
-        <div class="menu__wrapper">
+        <div class="menu__wrapper" v-if="result.length !== 0">
             <div class="menu__left">
                 <div class="item__wrapper">
                     <div class="item__cover">
-                        <img src="/static/img/list123.png" alt="cover">
+                        <img :src="result.cover" alt="cover">
                     </div>
                     <div class="item__text">
-                        <div class="item__title">LOREM IPSUM PIE</div>
-                        <div class="item__price">600 руб.</div>
+                        <div class="item__title">{{ result.name }}</div>
+                        <div class="item__price">{{ result.price }} руб.</div>
                         <div class="item__list">
                             <ol class="item__list-ol">
                                 <li class="item__list-li">Первый пункт</li>
@@ -40,16 +43,17 @@
                             </div>
                         </div>
                         <div class="item__teg">
-                            <div class="item__teg-text"><span>Категория:</span> Пироги</div>
-                            <div class="item__teg-text"><span>Теги:</span> <a href="#">Грибы</a>, <a href="#">Грибы</a></div>
+                            <div class="item__teg-text" v-if=""><span>Категория:</span> {{ result.category[0].name }}</div>
+                            <div class="item__teg-text">
+                                <span>Теги:</span>
+                                <span v-for="item in result.tag"><a href="#">{{ item.name }}</a></span>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="item__desc">
                     <div class="item__desc-title">ОПИСАНИЕ</div>
-                    <div class="item__desc-text">Что может быть лучше, чем аппетитный кусочек теста с сытной начинкой из нежной говядины и свежей ветчины под тонкой корочкой ароматного сыра? При одном взгляде на «Аппетитную» пиццу вам непременно захочется полакомиться ею, даже если вы совсем недавно перекусили.
-
-                        Помимо двух видов мясапицца «Аппетитная», разумеется, содержит традиционную для этого блюда подборку овощей. Маринованные огурчики, желтые, красные и зеленые пеппероне, перемежающиеся ломтиками помидоров двух сортов сделали вкус итальянского блюда по-настоящему фантастическим.</div>
+                    <div class="item__desc-text" v-html="result.description"></div>
                 </div>
                 <div class="item__rec">
                     <div class="item__rec-title">Популярные товары
@@ -102,33 +106,40 @@
                     </div>
                 </div>
             </div>
-            <div class="menu__right">
-                <div class="menu__right-title">Поиск</div>
-                <div class="menu__right_search">
-                    <input type="text" placeholder="Введите название...">
-                </div>
-                <div class="menu__right-title">Категории</div>
-                <div class="menu__right_list">
-                    <div class="menu__right_item menu__right_item-active">Осетинские пироги</div>
-                    <div class="menu__right_item">Рыбные пироги</div>
-                    <div class="menu__right_item">Пицца</div>
-                    <div class="menu__right_item">Постное меню</div>
-                    <div class="menu__right_item">Вторые блюда</div>
-                    <div class="menu__right_item">Домашняя выпечка</div>
-                    <div class="menu__right_item">Напитки</div>
-                </div>
-            </div>
+            <menu-bar></menu-bar>
         </div>
     </div>
 </template>
 
 <script>
+  import axios from 'axios'
+  import menuBar from '../components/MenuBar.vue'
+
   export default {
     name:'item',
     data() {
       return{
-
+        result: []
       }
+    },
+    components:{
+      menuBar
+    },
+    watch: {
+      '$route.params.item': 'get'
+    },
+    methods:{
+      get(){
+        const self = this;
+        const router = this.$route.params.item;
+        axios.get('/api/goods/' + router + '/')
+          .then(function (response) {
+            self.result =  response.data
+          })
+      }
+    },
+    created(){
+      this.get()
     }
   }
 </script>

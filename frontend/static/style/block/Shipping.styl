@@ -1,0 +1,89 @@
+.shipping{
+  &__wrapper{
+    max-width: 1170px
+    margin: 0 auto
+  }
+  &__list{
+    display: flex
+    margin-top: 85px
+    margin-bottom: 60px
+  }
+  &__item{
+    flex: 25%
+  }
+  &__cover{
+    display: flex
+    justify-content: center
+    flex-direction column;
+    align-items center
+    width: 100%
+
+    img{
+      height: 90px
+      margin-bottom: 20px
+    }
+  }
+  &_title{
+    background-color: #de3346;
+    font-size: 29px;
+    width: 260px
+    color: #ffffff;
+    font-family YanoneRegular
+    font-weight: 700;
+    line-height: 60px
+    text-align center
+  }
+  &__text{
+    margin-top: 20px
+    width: 100%
+    display: flex
+    align-items center
+    justify-content: center
+    border-right: 1px solid #de3346;
+    &-wrapper{
+      max-width: 251px
+      height: 340px
+    }
+    p{
+      color: #616161;
+      font-size: 17px;
+      font-family CenturyRegular
+      line-height: 20.83px;
+      margin: 0
+      padding-bottom: 20px
+      &:last-child{
+        padding-bottom: none
+      }
+      .shipping_red{
+        color: #de3346;
+        font-weight: 700;
+      }
+      .shipping_bold{
+        font-weight: 700;
+        color: #616161;
+        font-size: 17px;
+        font-family CenturyRegular
+        line-height: 20.83px;
+      }
+      .shipping_border{
+        text-decoration: underline;
+      }
+    }
+  }
+  &__bot{
+    font-size: 25px;
+    font-family YanoneRegular
+    color: #000000;
+    margin-bottom: 50px
+    text-align center
+  }
+  &__tr{
+    text-align center
+    margin-bottom: 80px
+    font-weight: 700;
+    font-size: 35px;
+    font-family YanoneRegular
+    text-transform: uppercase;
+    color: #000000;
+  }
+}

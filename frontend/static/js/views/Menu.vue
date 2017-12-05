@@ -5,114 +5,37 @@
                 <div class="header__mini_title">Меню</div>
                 <div class="header__mini_list">
                     <router-link :to="{ name: 'index' }" class="header__mini_item">Главная ></router-link>
-                    <div class="header__mini_item header__mini_item-active">Меню</div>
+                    <div class="header__mini_item"
+                         :class="{ 'header__mini_item-active': $route.params.id === 'all'  }"
+                    >Меню</div>
+                    <div v-if="$route.params.id !== 'all'"
+                         class="header__mini_item header__mini_item-active">> {{ resultPage.name }}</div>
                 </div>
             </div>
         </div>
 
         <div class="menu__wrapper">
             <div class="menu__left">
-                <div class="menu__filter">
-                    <div class="menu__filter_icon">
-                        <img class="menu__filter_icon-left" src="/static/img/filter.png" alt="cover">
-                        <img class="menu__filter_icon-right" src="/static/img/filter1.png" alt="cover">
-                    </div>
-                    <div class="menu__filter_count">
-                        Показаны 1-9 из 12 товаров
-                    </div>
-                    <div class="menu__filter_select">
-                        <select name="sel" id="sel">
-                            <option >По умолчанию</option>
-                        </select>
-                    </div>
-                </div>
-
-
                 <div class="menu__list">
-                    <div class="menu__list_item">
+                    <div class="menu__list_item" v-for="item in resultProduct">
                         <div class="menu__list_cover">
-                            <img src="/static/img/list123.png" alt="cover">
+                            <img :src="item.cover" alt="cover">
                             <div class="menu__list_hover">
-                                <router-link :to="{ name:'item' }" class="menu__list_hover-top">Быстрый просмотр</router-link>
+                                <router-link :to="{ name:'item', params: { id: $route.params.id, item: item.id } }"
+                                             class="menu__list_hover-top">Быстрый просмотр</router-link>
                                 <div class="menu__list_hover-bottom">Быстрый заказ</div>
                             </div>
                         </div>
                         <div class="menu__list_desc">
-                            <div class="menu__list_title">LOREM IPSUM PIE</div>
+                            <div class="menu__list_title">{{ item.name }}</div>
                         </div>
-                        <div class="menu__list_price">600 руб.</div>
-                        <button class="menu__list_button">Заказать</button>
+                        <div class="menu__list_price">{{ item.price }} руб.</div>
+                        <router-link
+                                tag="button"
+                                :to="{ name:'item', params: { id: $route.params.id, item: item.id } }"
+                                class="menu__list_button">Заказать</router-link>
                     </div>
-                    <div class="menu__list_item">
-                        <div class="menu__list_cover">
-                            <img src="/static/img/list123.png" alt="cover">
-                            <div class="menu__list_hover">
-                                <div class="menu__list_hover-top">Быстрый просмотр</div>
-                                <div class="menu__list_hover-bottom">Быстрый заказ</div>
-                            </div>
-                        </div>
-                        <div class="menu__list_desc">
-                            <div class="menu__list_title">LOREM IPSUM PIE</div>
-                        </div>
-                        <div class="menu__list_price">600 руб.</div>
-                        <button class="menu__list_button">Заказать</button>
-                    </div>
-                    <div class="menu__list_item">
-                        <div class="menu__list_cover">
-                            <img src="/static/img/list123.png" alt="cover">
-                            <div class="menu__list_hover">
-                                <div class="menu__list_hover-top">Быстрый просмотр</div>
-                                <div class="menu__list_hover-bottom">Быстрый заказ</div>
-                            </div>
-                        </div>
-                        <div class="menu__list_desc">
-                            <div class="menu__list_title">LOREM IPSUM PIE</div>
-                        </div>
-                        <div class="menu__list_price">600 руб.</div>
-                        <button class="menu__list_button">Заказать</button>
-                    </div>
-                    <div class="menu__list_item">
-                        <div class="menu__list_cover">
-                            <img src="/static/img/list123.png" alt="cover">
-                            <div class="menu__list_hover">
-                                <div class="menu__list_hover-top">Быстрый просмотр</div>
-                                <div class="menu__list_hover-bottom">Быстрый заказ</div>
-                            </div>
-                        </div>
-                        <div class="menu__list_desc">
-                            <div class="menu__list_title">LOREM IPSUM PIE</div>
-                        </div>
-                        <div class="menu__list_price">600 руб.</div>
-                        <button class="menu__list_button">Заказать</button>
-                    </div>
-                    <div class="menu__list_item">
-                        <div class="menu__list_cover">
-                            <img src="/static/img/list123.png" alt="cover">
-                            <div class="menu__list_hover">
-                                <div class="menu__list_hover-top">Быстрый просмотр</div>
-                                <div class="menu__list_hover-bottom">Быстрый заказ</div>
-                            </div>
-                        </div>
-                        <div class="menu__list_desc">
-                            <div class="menu__list_title">LOREM IPSUM PIE</div>
-                        </div>
-                        <div class="menu__list_price">600 руб.</div>
-                        <button class="menu__list_button">Заказать</button>
-                    </div>
-                    <div class="menu__list_item">
-                        <div class="menu__list_cover">
-                            <img src="/static/img/list123.png" alt="cover">
-                            <div class="menu__list_hover">
-                                <div class="menu__list_hover-top">Быстрый просмотр</div>
-                                <div class="menu__list_hover-bottom">Быстрый заказ</div>
-                            </div>
-                        </div>
-                        <div class="menu__list_desc">
-                            <div class="menu__list_title">LOREM IPSUM PIE</div>
-                        </div>
-                        <div class="menu__list_price">600 руб.</div>
-                        <button class="menu__list_button">Заказать</button>
-                    </div>
+
                 </div>
 
                 <div class="menu__pagination">
@@ -122,34 +45,54 @@
                     <div class="menu__pagination_item">&#187;</div>
                 </div>
             </div>
-            <div class="menu__right">
-                <div class="menu__right-title">Поиск</div>
-                <div class="menu__right_search">
-                    <input type="text" placeholder="Введите название...">
-                </div>
-                <div class="menu__right-title">Категории</div>
-                <div class="menu__right_list">
-                    <div class="menu__right_item menu__right_item-active">Осетинские пироги</div>
-                    <div class="menu__right_item">Рыбные пироги</div>
-                    <div class="menu__right_item">Пицца</div>
-                    <div class="menu__right_item">Постное меню</div>
-                    <div class="menu__right_item">Вторые блюда</div>
-                    <div class="menu__right_item">Домашняя выпечка</div>
-                    <div class="menu__right_item">Напитки</div>
-                </div>
-            </div>
+            <menu-bar></menu-bar>
         </div>
 
     </div>
 </template>
 
 <script>
+  import menuBar from '../components/MenuBar.vue'
+  import axios from 'axios'
+
   export default {
     name: 'menu',
     data(){
       return{
-
+        resultProduct: [],
+        resultPage: [],
+        countProduct: 0
       }
+    },
+    components:{
+      menuBar
+    },
+    watch: {
+      '$route.params.id' : 'get'
+    },
+    methods:{
+      get(){
+        const self = this;
+        const router = this.$route.params.id;
+        if( router === 'all' ){
+          axios.get('/api/goods/')
+            .then(function (response) {
+              self.resultProduct = response.data.results;
+              self.resultPage = response.data;
+              self.countProduct =  response.data.results.length
+            })
+        } else {
+          axios.get('/api/category/' + router + '/')
+            .then(function (response) {
+              self.resultProduct = response.data.goods_categories;
+              self.resultPage = response.data;
+              self.countProduct =  response.data.goods_categories.length
+            })
+        }
+      }
+    },
+    created(){
+      this.get()
     }
   }
 </script>

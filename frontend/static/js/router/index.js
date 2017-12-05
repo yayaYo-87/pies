@@ -4,6 +4,12 @@ import Router from 'vue-router'
 import index from '../views/Index.vue'
 import menu from '../views/Menu.vue'
 import item from '../views/Item.vue'
+import discount from '../views/Discount.vue'
+import shipping from '../views/Shipping.vue'
+import contacts from '../views/Contacts.vue'
+import about from '../views/About.vue'
+import comment from '../views/Comments.vue'
+import basket from '../views/Basket.vue'
 
 Vue.use(Router);
 
@@ -28,13 +34,40 @@ export default new Router({
       name: 'index',
       component: index
     },{
-      path: '/menu',
+      path: '/discount',
+      name: 'discount',
+      component: discount
+    },{
+      path: '/shipping',
+      name: 'shipping',
+      component: shipping
+    },{
+      path: '/menu/:id',
       name: 'menu',
       component: menu
     },{
-      path: '/item',
+      path: '/menu',
+      redirect: '/menu/all',
+    },{
+      path: '/basket',
+      name: 'basket',
+      component: basket
+    },{
+      path: '/menu/:id/:item',
       name: 'item',
       component: item
+    },{
+      path: '/contacts',
+      name: 'contacts',
+      component: contacts
+    },{
+      path: '/about',
+      name: 'about',
+      component: about
+    },,{
+      path: '/comment',
+      name: 'comment',
+      component: comment
     },
   ]
 })

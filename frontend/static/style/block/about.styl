@@ -1,0 +1,152 @@
+.about{
+  &__top{
+    max-width: 1200px
+    margin: 80px auto
+    height: 540px
+    position: relative
+  }
+  &__left{
+    position: relative
+    img{
+      position: absolute
+      top: 0px
+      left: 0px
+      width: 640px
+      height: 450px
+    }
+  }
+  &__right{
+    padding: 70px 75px 85px 75px
+    position: absolute
+    bottom: 0px
+    right: 0px
+    background url("/static/img/about4321.png") no-repeat
+    background-size 100%
+    width: 640px
+    height: 450px
+    text-align center
+    &_title{
+      font-size: 38px;
+      font-family YanoneRegular
+      color: #ffffff;
+      font-weight bold
+      margin-bottom: 20px
+    }
+    &_desc{
+      font-size: 17px;
+      font-family YanoneRegular
+      color: #ffffff
+      text-align justify
+    }
+  }
+  &__center{
+    width: 100%
+    height: 400px
+    background url("/static/img/about555.png") no-repeat
+    background-size cover
+    background-position center
+    margin-bottom: 80px
+    &__wrapper{
+      max-width: 1050px
+      margin: 0 auto
+      text-align: center
+    }
+    &_title{
+      padding-top: 110px
+      color: #de3346;
+      font-family YanoneRegular
+      font-size: 67px;
+      font-weight: 700;
+    }
+    &_desc{
+      font-size: 38px;
+      font-family YanoneRegular
+      color: #ffffff;
+    }
+  }
+  &__slider{
+    margin-bottom: 60px
+    .swiper-button-prev{
+      width: 50px
+      height: 50px
+      background  url("/static/img/rec1.png") no-repeat
+      background-size 10px 19px
+      background-color: #ba1125;
+
+      background-position center
+      z-index: 10
+      top: 20px
+      left: calc(50% - 60px)
+    }
+    .swiper-button-next{
+      width: 50px
+      height: 50px
+      background  url("/static/img/rec1.png") no-repeat
+      background-size 10px 19px
+      background-color: #ba1125;
+      transform rotate(180deg)
+      background-position center
+      z-index: 10
+      top: 20px
+      left: calc(50% + 10px )
+    }
+    &_wrapper{
+      max-width: 1200px
+      margin: 0 auto
+      .swiper-slide{
+        display: flex
+        justify-content: space-between
+        max-width: 1200px
+      }
+    }
+    &_left{
+      max-width: 500px
+      background url("/static/img/aboutslider1.png") no-repeat
+      background-size 100%
+      padding: 94px 32px 90px 32px
+      height: 722px
+      font-size: 29px;
+      color: #ffffff;
+      font-family YanoneRegular
+      line-height: 45.83px;
+      text-align center
+
+    }
+    &_right{
+      max-width: 500px
+      background url("/static/img/aboutslider2.png") no-repeat
+      background-size 100%
+      color: #ffffff;
+      text-align center
+      font-family YanoneRegular
+      line-height: 45.83px;
+      padding: 94px 35px 90px 35px
+      font-size: 29px;
+      height: 722px
+    }
+  }
+  &__end{
+    width: 100%
+    height: 230px
+    position: relative
+    padding-top: 30px
+    &:after{
+      content: ''
+      position: absolute
+      top: 0px
+      left: 0px
+      background url("/static/img/end1.png") no-repeat
+      background-size 100%
+      width: 100%
+      height: 100%
+    }
+    &_title{
+      position: relative
+      z-index: 2
+      font-size: 71px;
+      text-transform uppercase
+      color: #000000;
+      text-align center
+    }
+  }
+}
