@@ -1,4 +1,6 @@
+from rest_framework import pagination
 from rest_framework import serializers
+from rest_framework.settings import api_settings
 
 from app.market.models import GoodsConsist, Tag, Goods, Category
 
@@ -58,8 +60,21 @@ class GoodsDetailSerializer(serializers.ModelSerializer):
 
 
 class CategorySerializer(serializers.ModelSerializer):
-    goods_categories = GoodsSerializer(many=True, required=False)
+    # goods_categories = GoodsSerializer(many=True, required=False)
+    goods = serializers.SerializerMethodField('get_paginated_goods')
 
     class Meta:
         model = Category
-        fields = ['id', 'name', 'slug', 'goods_categories',]
+        fields = ['id', 'name', 'slug', 'goods',]
+
+    # def paginated_tracks(self, obj):
+    #     goods = Goods.objects.filter(album=obj)
+    #     paginator = pagination.PageNumberPagination()
+    #     page = paginator.paginate_queryset(goods, self.context['request'])
+    #     serializer = GoodsSerializer(page, many=True, context={'request': self.context['request']})
+    #     return serializer.data
+
+    def get_paginated_goods(self, obj):
+        goods = Goods.objects.filter(category=obj)[:api_settings.PAGE_SIZE]
+        serializer = GoodsSerializer(goods, many=True, context={'request': self.context['request']})
+        return serializer.data
