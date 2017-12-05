@@ -22,9 +22,9 @@
           </div>
       </div>
       <div class="header__basket">
-        <div class="header__basket__img">
+        <router-link :to="{ name: 'basket' }" tag="div" class="header__basket__img">
           <div class="header__basket__img-count">2</div>
-        </div>
+        </router-link>
         <div class="header__basket-price">1212 <span class="rubl" > &#8399;</span></div>
       </div>
     </div>
