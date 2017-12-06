@@ -84,9 +84,9 @@
         } else {
           axios.get('/api/category/' + router + '/')
             .then(function (response) {
-              self.resultProduct = response.data.goods_categories;
+              self.resultProduct = response.data.goods;
               self.resultPage = response.data;
-              self.countProduct =  response.data.goods_categories.length
+              self.countProduct =  response.data.goods.length
             })
         }
       }
