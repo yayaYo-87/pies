@@ -5,58 +5,43 @@
         </div>
         <div class="index__menu_wrapper">
             <div class="index__menu_items">
-                <div class="index__menu_item">
+                <router-link tag="div" :to="{ name: 'menu', params: { id: item.slug } }"
+                             class="index__menu_item"
+                             :key="index"
+                             v-for="(item, index) in result">
                     <div class="index__menu_item-img">
-                        <img src="/static/img/menu1.svg" alt="img">
+                        <img :src="item.icon" alt="img">
                     </div>
                     <div class="index__menu_item-text">
-                        осетинские пироги
+                        {{ item.name }}
                     </div>
-                </div>
-                <div class="index__menu_item">
-                    <div class="index__menu_item-img">
-                        <img src="/static/img/menu3.svg" alt="img">
-                    </div>
-                    <div class="index__menu_item-text">
-                        пицца
-                    </div>
-                </div>
-                <div class="index__menu_item">
-                    <div class="index__menu_item-img">
-                        <img src="/static/img/menu2.svg" alt="img">
-                    </div>
-                    <div class="index__menu_item-text">
-                        домашняя выпечка
-                    </div>
-                </div>
-                <div class="index__menu_item ">
-                    <div class="index__menu_item-img ">
-                        <img src="/static/img/menu4.svg" alt="img">
-                    </div>
-                    <div class="index__menu_item-text">
-                        блюда к обеду
-                    </div>
-                </div>
-                <div class="index__menu_item">
-                    <div class="index__menu_item-img">
-                        <img src="/static/img/menu5.svg" alt="img">
-                    </div>
-                    <div class="index__menu_item-text">
-                        напитки
-                    </div>
-                </div>
+                </router-link>
             </div>
         </div>
     </div>
 </template>
 
 <script>
+  import axios from 'axios'
+
   export default {
     name: 'indexMenu',
     data() {
       return{
-
+        result: []
       }
+    },
+    methods:{
+      get(){
+        const self = this;
+        axios.get('/api/category/')
+          .then(function (response) {
+            self.result =  response.data
+          })
+      }
+    },
+    created() {
+      this.get()
     }
   }
 </script>
