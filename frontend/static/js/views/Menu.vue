@@ -35,14 +35,6 @@
                                 :to="{ name:'item', params: { id: $route.params.id, item: item.id } }"
                                 class="menu__list_button">Заказать</router-link>
                     </div>
-
-                </div>
-
-                <div class="menu__pagination">
-                    <div class="menu__pagination_item">&#171;</div>
-                    <div class="menu__pagination_item menu__pagination_item-active">1</div>
-                    <div class="menu__pagination_item">2</div>
-                    <div class="menu__pagination_item">&#187;</div>
                 </div>
             </div>
             <menu-bar></menu-bar>
@@ -77,16 +69,14 @@
         if( router === 'all' ){
           axios.get('/api/goods/')
             .then(function (response) {
-              self.resultProduct = response.data.results;
-              self.resultPage = response.data;
-              self.countProduct =  response.data.results.length
+              self.resultProduct = response.data;
+              self.countProduct =  response.data.length
             })
         } else {
           axios.get('/api/category/' + router + '/')
             .then(function (response) {
-              self.resultProduct = response.data.goods_categories;
-              self.resultPage = response.data;
-              self.countProduct =  response.data.goods_categories.length
+              self.resultProduct = response.data.goods;
+              self.countProduct =  response.data.goods.length
             })
         }
       }
