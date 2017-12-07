@@ -1,4 +1,5 @@
 from rest_framework import viewsets
+from rest_framework.pagination import PageNumberPagination
 
 from app.market.models import Category, Goods
 from app.market.serializers import CategorySerializer, GoodsSerializer, GoodsDetailSerializer
