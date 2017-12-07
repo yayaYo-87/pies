@@ -25,6 +25,7 @@ class GoodsSerializer(serializers.ModelSerializer):
             'name',
             'price',
             'cover',
+            'shot_description',
         ]
 
 
@@ -48,6 +49,7 @@ class GoodsDetailSerializer(serializers.ModelSerializer):
             'price',
             'category',
             'description',
+            'shot_description',
             'cover',
             'is_active',
             'is_main',
@@ -66,7 +68,7 @@ class CategorySerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Category
-        fields = ['id', 'name', 'slug', 'goods',]
+        fields = ['id', 'name', 'slug', 'icon', 'icon_active', 'goods']
 
     # def paginated_tracks(self, obj):
     #     goods = Goods.objects.filter(album=obj)

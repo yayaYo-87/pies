@@ -21,6 +21,8 @@ def upload_to(instance, filename):
 class Category(models.Model):
     name = models.CharField(verbose_name='Категория', max_length=256)
     slug = models.SlugField(verbose_name='URL', null=True, blank=False)
+    icon = models.ImageField(verbose_name='Выбрать иконку слайда', blank=True, upload_to=upload_to)
+    icon_active = models.ImageField(verbose_name='Выбрать иконку активного слайда', blank=True, upload_to=upload_to)
     sort_index = models.PositiveIntegerField(verbose_name='Индекс сортировки', default=0)
 
     def __str__(self):
@@ -60,7 +62,9 @@ class Goods(models.Model):
     name = models.CharField(verbose_name='Название', max_length=256)
     articul = models.CharField(verbose_name='Артикул товара', max_length=256, null=True, blank=False)
     price = models.PositiveIntegerField(verbose_name='Цена', blank=False)
+    discount_price = models.PositiveIntegerField(verbose_name='Цена со скидкой', blank=False, default=0)
     description = RichTextUploadingField(verbose_name='Описание', blank=True)
+    shot_description = models.TextField(verbose_name='Короткое описание', blank=True, null=True)
     cover = models.ImageField(verbose_name='Выбрать фотографию обложки', blank=True, upload_to=upload_to)
 
     sort_index = models.PositiveIntegerField(verbose_name='Индекс сортировки', default=0)
