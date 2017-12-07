@@ -16,7 +16,9 @@
                             v-for="(item, index) in result">
                         <div class="slider">
                             <div class="slider__left">
-                                <div class="slider__title">{{ item.discount_goods[0].goods.name }}</div>
+                                <router-link
+                                        :to="{ name: 'item', params: { item: item.discount_goods[0].goods.id , id: 'all' } }"
+                                        class="slider__title">{{ item.discount_goods[0].goods.name }}</router-link>
                                 <div class="slider__desc">{{ item.discount_goods[0].goods.shot_description }}</div>
                                 <div class="slider__img">
                                     <img :src="item.discount_goods[0].goods.cover" alt="cover">
@@ -25,7 +27,8 @@
                             <div class="slider__right">
                                 <div class="slider__desc">{{ item.discount_goods[1].goods.shot_description }}</div>
                                 <router-link tag="div"
-                                             :to="{ name: 'menu', params: { item: 'all' , id: item.discount_goods[0].goods.id } }" class="slider__title">{{ item.discount_goods[1].goods.name }}</router-link>
+                                             :to="{ name: 'item', params: { item: item.discount_goods[0].goods.id , id: 'all' } }"                                                          class="slider__title">{{ item.discount_goods[1].goods.name }}
+                                </router-link>
                                 <div class="slider__img">
                                     <img :src="item.discount_goods[1].goods.cover" alt="cover">
                                 </div>
