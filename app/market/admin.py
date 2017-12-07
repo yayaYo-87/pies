@@ -7,7 +7,26 @@ from app.market.models import Category, Tag, GoodsConsist, Goods
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
     model = Category
-    fields = ['name', 'slug', 'sort_index']
+    fields = ['name', 'slug', 'sort_index', 'icon', 'image_img', 'icon_active', 'image_img_active']
+    readonly_fields = ['image_img', 'image_img_active']
+
+    def image_img(self, obj):
+        if obj.icon:
+            return mark_safe('<a href="{0}" target="_blank"><img src="{0}" width="200"/></a>'.format(obj.icon.url))
+        else:
+            return '(Нет изображения)'
+
+    image_img.short_description = 'Фотография иконки'
+    image_img.allow_tags = True
+
+    def image_img_active(self, obj):
+        if obj.icon_active:
+            return mark_safe('<a href="{0}" target="_blank"><img src="{0}" width="200"/></a>'.format(obj.icon_active.url))
+        else:
+            return '(Нет изображения)'
+
+    image_img_active.short_description = 'Фотография активной иконки'
+    image_img_active.allow_tags = True
 
 
 @admin.register(Tag)
@@ -38,6 +57,7 @@ class GoodsAdmin(admin.ModelAdmin):
                     'category',
                     'price',
                     'description',
+                    'shot_description',
                     'cover',
                     'image_img',
                     'tag',
