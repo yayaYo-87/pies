@@ -70,7 +70,7 @@
   export default {
     data() {
       return {
-        popup: true
+        popup: false
       }
     },
     computed: {
