@@ -73,6 +73,13 @@
     justify-content: flex-end;
     padding-right: 68px
     padding-top: 60px
+    position: relative
+    &_wrapper{
+      position: absolute
+      z-index: 20
+      top: 115px;
+      right: 27px;
+    }
     &__img{
       background url("/static/img/icon/basket.svg") no-repeat
       background-size 100%
@@ -216,6 +223,7 @@
   justify-content: space-between
   align-items center
   position: relative
+  font-family YanoneRegular
   &:hover{
     .basket-header_number{
       transform: rotateY(360deg);
@@ -247,7 +255,7 @@
   }
   &__popup{
     position: relative
-    width: 500px
+    width: 375px
     top: 20px
     right: 0px
     padding: 20px 20px 20px 40px
@@ -274,7 +282,7 @@
       font-size: 18px;
       color: #464342;
       text-align center
-      font-family: 'MuseoSansMedium'
+      font-family YanoneRegular
     }
   }
   &__wrapper{

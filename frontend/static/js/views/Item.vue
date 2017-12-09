@@ -29,12 +29,12 @@
                         </div>
                         <div class="item__button">
                             <div class="item__button_left">
-                                <button class="item__button-sum">-</button>
-                                <div class="item__button-text">1</div>
-                                <button class="item__button-sum">+</button>
+                                <button class="item__button-sum" @click="countMinus()" :disabled="count === 1">-</button>
+                                <div class="item__button-text">{{ count }}</div>
+                                <button class="item__button-sum" @click="countPlus()">+</button>
                             </div>
                             <div class="item__button_right">
-                                <button class="item-button">Заказать</button>
+                                <button class="item-button" @click="postProduct()">Заказать</button>
                             </div>
                         </div>
                         <div class="item__teg">
@@ -84,6 +84,7 @@
     name:'item',
     data() {
       return{
+        count: 1,
         result: [],
         swiperOption: {
           slidesPerView: 3,
@@ -103,6 +104,12 @@
       '$route.params.item': 'get'
     },
     methods:{
+      countMinus(){
+        this.count = this.count - 1
+      },
+      countPlus(){
+        this.count = this.count + 1
+      },
       get(){
         const self = this;
         const router = this.$route.params.item;
@@ -110,6 +117,31 @@
           .then(function (response) {
             self.result =  response.data
           })
+      },
+      postProduct(){
+        const self = this
+        axios.post('/api/order_goods/', {
+          "goods": self.result.id,
+          "count": self.count,
+        }).then(
+          function (response) {
+            self.$store.dispatch('results')
+            self.animatePopup()
+          },
+          function (error) {
+          }
+        )
+      },
+      animatePopup(){
+        const newDiv = document.createElement('div');
+        newDiv.classList.add('popup')
+        newDiv.innerHTML = 'Товар добавлен в корзину';
+
+        document.body.appendChild(newDiv)
+
+        setTimeout(function () {
+          document.body.removeChild(newDiv)
+        }, 3000)
       }
     },
     created(){
