@@ -28,7 +28,7 @@
         const self = this
         axios.get('/api/category/')
           .then(function (response) {
-            self.result = response.data.results
+            self.result = response.data
           })
       }
     },

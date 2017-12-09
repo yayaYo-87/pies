@@ -14,33 +14,12 @@
                 <div class="index__image_right-e2">самые лучшие</div>
                 <div class="index__image_right-e3">ингредиенты</div>
             </div>
-            <div class="index__image_item">
-                <img src="/static/img/im1.png" alt="cover">
+
+            <div class="index__image_item" v-for="item in result">
+                <img :src="item.image" alt="cover">
             </div>
-            <div class="index__image_item">
-                <img src="/static/img/im2.png" alt="cover">
-            </div>
-            <div class="index__image_item">
-                <img src="/static/img/im3.png" alt="cover">
-            </div>
-            <div class="index__image_item">
-                <img src="/static/img/im4.png" alt="cover">
-            </div>
-            <div class="index__image_item">
-                <img src="/static/img/im5.png" alt="cover">
-            </div>
-            <div class="index__image_item">
-                <img src="/static/img/im6.png" alt="cover">
-            </div>
-            <div class="index__image_item">
-                <img src="/static/img/im7.png" alt="cover">
-            </div>
-            <div class="index__image_item">
-                <img src="/static/img/im8.png" alt="cover">
-            </div>
-            <div class="index__image_item">
-                <img src="/static/img/im9.png" alt="cover">
-            </div>
+
+
         </div>
         <div class="index__image_title index__image_title-bottom">
             <span class="index__image_title-text">ФАКТЫ О НАС</span>
@@ -62,7 +41,7 @@
                 </div>
 
                 <div class="index__image_list-item">
-                     <div class="index__image_list-img">
+                    <div class="index__image_list-img">
                         <img src="/static/img/img3.png" alt="">
                         <div class="index__image_list-count">340</div>
                     </div>
@@ -76,6 +55,7 @@
 
 <script>
   export default {
+    props: ['result'],
     data() {
       return {
 

@@ -5,40 +5,15 @@
         </div>
         <div class="index__about_wrapper">
             <swiper :options="swiperOption">
-                <swiper-slide>
+                <swiper-slide
+                        :key="index"
+                        v-for="(item, index) in result">
                     <div class="index__about-slider">
                         <div class="index__about_img">
-                            <img src="/static/img/about111.png" alt="cover">
+                            <img :src="item.image" alt="cover">
                         </div>
                         <div class="index__about-text">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                        </div>
-                    </div>
-                </swiper-slide> <swiper-slide>
-                    <div class="index__about-slider">
-                        <div class="index__about_img">
-                            <img src="/static/img/about111.png" alt="cover">
-                        </div>
-                        <div class="index__about-text">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                        </div>
-                    </div>
-                </swiper-slide> <swiper-slide>
-                    <div class="index__about-slider">
-                        <div class="index__about_img">
-                            <img src="/static/img/about111.png" alt="cover">
-                        </div>
-                        <div class="index__about-text">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                        </div>
-                    </div>
-                </swiper-slide> <swiper-slide>
-                    <div class="index__about-slider">
-                        <div class="index__about_img">
-                            <img src="/static/img/about111.png" alt="cover">
-                        </div>
-                        <div class="index__about-text">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                            {{ item.text_item }}
                         </div>
                     </div>
                 </swiper-slide>
@@ -53,6 +28,7 @@
   import SwiperSlide from "../../../../node_modules/vue-awesome-swiper/src/slide.vue";
 
   export default {
+    props: ['result'],
     components: {SwiperSlide},
     data(){
       return{

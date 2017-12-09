@@ -22,14 +22,9 @@
                     <div class="item__text">
                         <div class="item__title">{{ result.name }}</div>
                         <div class="item__price">{{ result.price }} руб.</div>
-                        <div class="item__list">
+                        <div class="item__list" v-if="result.goods_consist.length !== 0">
                             <ol class="item__list-ol">
-                                <li class="item__list-li">Первый пункт</li>
-                                <li class="item__list-li">Первый пункт</li>
-                                <li class="item__list-li">Первый пункт</li>
-                                <li class="item__list-li">Первый пункт</li>
-                                <li class="item__list-li">Первый пункт</li>
-                                <li class="item__list-li">Первый пункт</li>
+                                <li class="item__list-li" v-for="item in result.goods_consist">{{ item.text_item }}</li>
                             </ol>
                         </div>
                         <div class="item__button">
@@ -51,58 +46,27 @@
                         </div>
                     </div>
                 </div>
-                <div class="item__desc">
+                <div class="item__desc" >
                     <div class="item__desc-title">ОПИСАНИЕ</div>
                     <div class="item__desc-text" v-html="result.description"></div>
                 </div>
-                <div class="item__rec">
+                <div class="item__rec" v-if="result.related_goods.length !== 0">
                     <div class="item__rec-title">Популярные товары
-                        <div class="item__rec-prev"></div>
-                        <div class="item__rec-next"></div>
+                        <div class="item__rec-prev" slot="button-prev"></div>
+                        <div class="item__rec-next" slot="button-next"></div>
                     </div>
                     <div class="item__rec_list">
-                        <div class="menu__list_item">
-                            <div class="menu__list_cover">
-                                <img src="/static/img/list123.png" alt="cover">
-                                <div class="menu__list_hover">
-                                    <router-link :to="{ name:'item' }" class="menu__list_hover-top">Быстрый просмотр</router-link>
-                                    <div class="menu__list_hover-bottom">Быстрый заказ</div>
-                                </div>
-                            </div>
-                            <div class="menu__list_desc">
-                                <div class="menu__list_title">LOREM IPSUM PIE</div>
-                            </div>
-                            <div class="menu__list_price">600 руб.</div>
-                            <button class="menu__list_button">Заказать</button>
-                        </div>
-                        <div class="menu__list_item">
-                            <div class="menu__list_cover">
-                                <img src="/static/img/list123.png" alt="cover">
-                                <div class="menu__list_hover">
-                                    <router-link :to="{ name:'item' }" class="menu__list_hover-top">Быстрый просмотр</router-link>
-                                    <div class="menu__list_hover-bottom">Быстрый заказ</div>
-                                </div>
-                            </div>
-                            <div class="menu__list_desc">
-                                <div class="menu__list_title">LOREM IPSUM PIE</div>
-                            </div>
-                            <div class="menu__list_price">600 руб.</div>
-                            <button class="menu__list_button">Заказать</button>
-                        </div>
-                        <div class="menu__list_item">
-                            <div class="menu__list_cover">
-                                <img src="/static/img/list123.png" alt="cover">
-                                <div class="menu__list_hover">
-                                    <router-link :to="{ name:'item' }" class="menu__list_hover-top">Быстрый просмотр</router-link>
-                                    <div class="menu__list_hover-bottom">Быстрый заказ</div>
-                                </div>
-                            </div>
-                            <div class="menu__list_desc">
-                                <div class="menu__list_title">LOREM IPSUM PIE</div>
-                            </div>
-                            <div class="menu__list_price">600 руб.</div>
-                            <button class="menu__list_button">Заказать</button>
-                        </div>
+                        <swiper :options="swiperOption">
+                            <swiper-slide
+                                    :key="index"
+                                    v-for="(id, index) in result.related_goods">
+                                <item-recommended
+                                        :id="id"
+                                        :key="index"
+                                ></item-recommended>
+                            </swiper-slide>
+                        </swiper>
+
                     </div>
                 </div>
             </div>
@@ -114,16 +78,26 @@
 <script>
   import axios from 'axios'
   import menuBar from '../components/MenuBar.vue'
+  import itemRecommended from '../components/ItemRecommended.vue'
 
   export default {
     name:'item',
     data() {
       return{
-        result: []
+        result: [],
+        swiperOption: {
+          slidesPerView: 3,
+          spaceBetween: 30,
+          slidesPerGroup: 3,
+          nextButton: '.item__rec-next',
+          prevButton: '.item__rec-prev',
+        }
+
       }
     },
     components:{
-      menuBar
+      menuBar,
+      itemRecommended
     },
     watch: {
       '$route.params.item': 'get'

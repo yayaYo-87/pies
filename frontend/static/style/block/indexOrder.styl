@@ -6,20 +6,33 @@
   background-size 100%
   width: 100%
   &:after{
-    content:''
+    content: ''
     position: absolute
-    width: 100%
-    height: 100%
-    background url("/static/img/order222.png") no-repeat
+    background url("/static/img/popular1234.png") no-repeat
     background-size 100%
-    top: 0px
-    left:0px
+    width: 100%
+    height: 525px
+    top: -155px;
+    z-index 1
+    left: 0px
+  }
+  &:before{
+    content: ''
+    position: absolute
+    background url("/static/img/popular12.png") no-repeat
+    background-size 100%
+    width: 100%
+    height: 666px
+    bottom: -99px
+    left: 0px
+    z-index: 1
   }
   &_wrapper{
     max-width: 1200px
     margin 0 auto
     position: relative
-    z-index: 2
+    z-index: 3
+
   }
   &_title {
     width: 100%
@@ -62,6 +75,11 @@
         padding-right: 40px
       }
       &_right{
+        display: dlex
+        justify-content: center
+        align-items center
+        max-height 450px
+        width: 40%;
         img{
           width:100%
         }
@@ -157,11 +175,26 @@
 }
 
 @media (max-width: 1680px) {
+
   .index__order_title-text{
     margin-top: 96px
   }
   .index__order_wrapper{
     max-width: 1000px
+    &:after{
+      top: -125px;
+    }
+    &:before{
+      bottom: -67px;
+    }
+  }
+  .index__order{
+    &:after{
+      top: -125px;
+    }
+    &:before{
+      bottom: -67px;
+    }
   }
   .index__order_title-text{
     font-size 54px
@@ -210,6 +243,23 @@
   .index__order_title{
     margin-bottom: 0px
   }
+  .index__order_wrapper{
+    max-width: 1000px
+    &:after{
+      top: -111px;
+    }
+    &:before{
+      bottom: -206px;
+    }
+  }
+  .index__order{
+    &:after{
+      top: -111px;
+    }
+    &:before{
+      bottom: -206px;
+    }
+  }
 }
 @media (max-width: 1366px) {
   .index__order_title-text{
@@ -218,5 +268,16 @@
   }
   .index__order_title{
     margin-bottom: 0px
+  }
+  .index__order_wrapper{
+    max-width: 1000px
+  }
+  .index__order{
+    &:after{
+      top: -107px;
+    }
+    &:before{
+      bottom: -206px;
+    }
   }
 }

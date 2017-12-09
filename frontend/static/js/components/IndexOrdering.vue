@@ -6,51 +6,24 @@
             </div>
             <div class="index__order_slider">
                 <swiper :options="swiperOption">
-                    <swiper-slide>
+                    <swiper-slide
+                            :key="index"
+                            v-for="(item, index) in result">
                         <div class="order__slider">
                             <div class="order__slider_left">
-                                <div class="order__slider_title">LOREM IPSUM PIZZA</div>
-                                <div class="order__slider_text">dolor sit amet, consectetur adipiscing elised </div>
+                                <div class="order__slider_title">{{ item.goods.name }}</div>
+                                <div class="order__slider_text">{{ item.goods.shot_description }}</div>
                                 <div class="order__slider_desc">Sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea</div>
                                 <div class="order__slider_button">
                                     <button class="order__slider_button-left">Заказать</button>
-                                    <button class="order__slider_button-right">Узнать подробнее</button>
+                                    <router-link
+                                            tag="button"
+                                            :to="{ name: 'item', params: {id: 'all', item: item.goods.id } }"
+                                            class="order__slider_button-right">Узнать подробнее</router-link>
                                 </div>
                             </div>
                             <div class="order__slider_right">
-                                <img src="/static/img/order444.png" alt="cover">
-                            </div>
-                        </div>
-                    </swiper-slide>
-                    <swiper-slide>
-                        <div class="order__slider">
-                            <div class="order__slider_left">
-                                <div class="order__slider_title">LOREM IPSUM PIZZA</div>
-                                <div class="order__slider_text">dolor sit amet, consectetur adipiscing elised </div>
-                                <div class="order__slider_desc">Sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea</div>
-                                <div class="order__slider_button">
-                                    <button class="order__slider_button-left">Заказать</button>
-                                    <button class="order__slider_button-right">Узнать подробнее</button>
-                                </div>
-                            </div>
-                            <div class="order__slider_right">
-                                <img src="/static/img/order444.png" alt="cover">
-                            </div>
-                        </div>
-                    </swiper-slide>
-                    <swiper-slide>
-                        <div class="order__slider">
-                            <div class="order__slider_left">
-                                <div class="order__slider_title">LOREM IPSUM PIZZA</div>
-                                <div class="order__slider_text">dolor sit amet, consectetur adipiscing elised </div>
-                                <div class="order__slider_desc">Sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea</div>
-                                <div class="order__slider_button">
-                                    <button class="order__slider_button-left">Заказать</button>
-                                    <button class="order__slider_button-right">Узнать подробнее</button>
-                                </div>
-                            </div>
-                            <div class="order__slider_right">
-                                <img src="/static/img/order444.png" alt="cover">
+                                <img :src="item.goods.cover" alt="cover">
                             </div>
                         </div>
                     </swiper-slide>
@@ -64,6 +37,7 @@
 
 <script>
   export default {
+    props: ['result'],
     data(){
       return{
         swiperOption: {
