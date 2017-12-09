@@ -1,10 +1,8 @@
 import axios from 'axios'
 
 const state = {
-
-
+  results: []
 };
-
 
 // actions
 const actions = {
@@ -14,17 +12,12 @@ const actions = {
       .then(
         function (response) {
 
-          state.commit('results', { type: 'results', items: response.data});
-
+          state.commit('results', { type: 'results', items: response.data})
         },
         function (error) {
         }
       );
   },
-  validation(store, {value, typeValid}){
-    store.commit('results', { type: typeValid, items: value})
-  }
-
 };
 // getters
 const getters = {
@@ -35,10 +28,6 @@ const mutations = {
   results(state, {type, items}) {
     state[type] = items
   },
-  pushItem(state, {type, items}) {
-    state[type] = state[type].concat(items)
-  },
-
 };
 
 export default {

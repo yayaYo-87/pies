@@ -209,3 +209,232 @@
     }
   }
 }
+
+.basket-header{
+  width: 100px
+  display: flex
+  justify-content: space-between
+  align-items center
+  position: relative
+  &:hover{
+    .basket-header_number{
+      transform: rotateY(360deg);
+    }
+  }
+  &_text{
+    color: #464342;
+    position: relative
+    cursor: pointer;
+    &:after{
+      content ''
+      position: absolute
+      top: 2px
+      left: -37px
+      background url("/static/img/crocs.svg") no-repeat
+      width: 30px
+      height: 12px
+    }
+  }
+  &_number{
+    background-color: #84b923;
+    border-radius 10px
+    color: #fff
+    width: 30px
+    text-align center
+    line-height: 20px
+    padding-top: 2px;
+    transition: transform .7s;
+  }
+  &__popup{
+    position: relative
+    width: 500px
+    top: 20px
+    right: 0px
+    padding: 20px 20px 20px 40px
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color #ffffff
+    &_wrapper{
+      position: absolute
+      z-index: 100
+      top: 20px
+      right: 0px
+    }
+    &:after{
+      content: ''
+      background-color #ffffff
+      width: 20px
+      height: 20px
+      transform rotate(45deg)
+      box-shadow: -2px -2px 3px rgba(0, 0, 0, 0.1);
+      position: absolute
+      top: -10px
+      right: 50px
+    }
+    &_false{
+      font-size: 18px;
+      color: #464342;
+      text-align center
+      font-family: 'MuseoSansMedium'
+    }
+  }
+  &__wrapper{
+    .button{
+      margin-top: 0px
+      width: 420px
+    }
+  }
+  &__items{
+    max-height: calc(100vh - 250px)
+    overflow-y: auto
+    overflow-x hidden
+    padding-right: 20px
+  }
+  &__item{
+    display: flex
+    padding: 10px 0px
+    border-bottom: 1px solid #d8d8d8
+    justify-content: space-between
+    position: relative
+    &-active{
+      position: absolute
+      width: 100%
+      height: 90%
+      display: flex
+      justify-content: center
+      align-items center
+      .button{
+        margin-top: 0px
+        width: 200px
+        position: relative
+        z-index: 2
+      }
+      &:after{
+        content: ''
+        position: absolute
+        z-index: 1
+        background-color rgba(255, 255, 255, 0.82)
+        width: 100%
+        height: 100%
+      }
+    }
+    &-close{
+      cursor pointer
+      position: absolute
+      right: 0px
+      top:-3px
+      color: rgba(150, 150, 150, 0.63);
+      font-family: 'MuseoSansRegular'
+      font-size 30px
+      transform rotate(45deg)
+      transition .3s
+      &:hover{
+        color: rgba(150, 150, 150, 1)
+      }
+    }
+    &-img{
+      width: 110px
+      display: flex
+      align-items center
+      justify-content center
+      height: 96px
+      cursor: pointer
+      img{
+        width: 100%
+      }
+    }
+    &_price{
+      position: relative
+      width: 100px;
+      text-align: right;
+      margin-top: 21px
+      .price_active{
+        position: absolute
+        right: 0px
+        top: 24px
+        font-size: 14px;
+        &:after{
+          content: ''
+          position: absolute
+          height: 1px
+          width: 100%
+          background-color: #969696;
+          top: 50%
+          left: 0
+          transform rotate(15deg)
+        }
+      }
+      &-current{
+        color: #848484;
+        font-size: 20px;
+        font-family: 'MuseoSansMedium'
+        display: inline-block
+        float right
+      }
+      &-discount{
+        font-size: 20px;
+        color: #ca1f2a;
+        font-family: 'MuseoSansMedium'
+      }
+    }
+    &_info{
+      padding-left: 20px
+      width: 200px
+      &-name{
+        max-width: 180px
+        overflow hidden
+        white-space: nowrap
+        text-overflow: ellipsis;
+        margin-top: 20px
+        color: #464342;
+        line-height: 32px;
+        font-size: 18px;
+        font-family: 'MuseoSansMedium'
+      }
+      &-call{
+        display: flex
+        &_name{
+          padding-left: 15px
+          max-width: 100px
+          overflow hidden
+          white-space: nowrap
+          text-overflow: ellipsis;
+          &:first-child{
+            padding-left: 0px
+          }
+        }
+      }
+    }
+  }
+  &__total{
+    width: 100%
+    display: flex
+    margin-top: 10px
+    margin-bottom: 20px
+    justify-content: flex-end
+    align-items center
+    padding-right: 20px
+    &-name{
+      color: #969696;
+      font-size: 20px;
+      font-family: 'MuseoSansMedium'
+      line-height: 36px
+      margin-right: 15px
+    }
+    &-price{
+      color: #464342;
+      font-size: 20px;
+      font-family: 'MuseoSansBold'
+    }
+  }
+}
+
+.popupBasket-enter-active {
+  transition: all .3s ease;
+}
+.popupBasket-leave-active {
+  transition: all .3s ease;
+}
+.popupBasket-enter, .popupBasket-leave-to{
+  opacity: 0;
+  transform translateX(30px)
+}
