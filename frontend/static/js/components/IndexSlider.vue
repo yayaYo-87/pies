@@ -9,13 +9,18 @@
             </transition>
         </div>
         <div class="index__slider">
+            <div class="index__slider-perez"></div>
+            <div class="index__slider-baz"></div>
+            <div class="index__slider-brok"></div>
+            <div class="index__slider-kap"></div>
             <div class="index__slider_wrapper">
+
                 <swiper :options="swiperOption" ref="mySwiper">
                     <swiper-slide
                             :key="index"
                             v-for="(item, index) in result">
                         <div class="slider">
-                            <div class="slider__left">
+                               <div class="slider__left">
                                 <router-link
                                         :to="{ name: 'item', params: { item: item.discount_goods[0].goods.id , id: 'all' } }"
                                         class="slider__title">{{ item.discount_goods[0].goods.name }}</router-link>
@@ -58,8 +63,6 @@
 </template>
 
 <script>
-  import 'swiper/dist/css/swiper.css'
-  import {swiper, swiperSlide} from 'vue-awesome-swiper'
   export default {
     props: ['result'],
     data() {
@@ -76,10 +79,6 @@
 
         }
       }
-    },
-    components: {
-      swiper,
-      swiperSlide,
     },
     computed: {
       swiperOne() {

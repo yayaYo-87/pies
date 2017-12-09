@@ -1,15 +1,16 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import index from '../views/Index.vue'
-import menu from '../views/Menu.vue'
-import item from '../views/Item.vue'
-import discount from '../views/Discount.vue'
-import shipping from '../views/Shipping.vue'
-import contacts from '../views/Contacts.vue'
-import about from '../views/About.vue'
-import comment from '../views/Comments.vue'
-import basket from '../views/Basket.vue'
+
+const index = () => import('../views/Index.vue');
+const menu = () => import('../views/Menu.vue');
+const item = () => import('../views/Item.vue');
+const discount = () => import('../views/Discount.vue');
+const shipping = () => import('../views/Shipping.vue');
+const contacts = () => import('../views/Contacts.vue');
+const about = () => import('../views/About.vue');
+const comment = () => import('../views/Comments.vue');
+const basket = () => import('../views/Basket.vue');
 
 Vue.use(Router);
 

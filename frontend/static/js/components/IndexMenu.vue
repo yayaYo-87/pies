@@ -1,5 +1,6 @@
 <template>
     <div class="index__menu">
+        <div class="index__menu-sal"></div>
         <div class="index__menu_title">
             <span class="index__menu_title-text">Меню</span>
         </div>
