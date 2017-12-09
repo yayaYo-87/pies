@@ -28,7 +28,7 @@ class OrderModelAdmin(admin.ModelAdmin):
         'last_name',
         # 'order_delivery',
         # 'city',
-        # 'address',
+        'address',
         # 'order_status',
         'created_at',
         'total',
@@ -46,6 +46,7 @@ class OrderModelAdmin(admin.ModelAdmin):
         'last_name',
         'email',
         'phone',
+        'address',
     ]
     inlines = [OrderGoodsInline, ]
     actions = None

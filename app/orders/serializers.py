@@ -54,6 +54,7 @@ class OrderSerializer(serializers.ModelSerializer):
             'id',
             # 'order_status',
             'total_count',
+            'address',
             'phone',
             'first_name',
             'last_name',
