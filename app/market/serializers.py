@@ -25,6 +25,7 @@ class GoodsSerializer(serializers.ModelSerializer):
             'name',
             'price',
             'cover',
+            'title',
             'shot_description',
         ]
 
@@ -48,6 +49,7 @@ class GoodsDetailSerializer(serializers.ModelSerializer):
             'articul',
             'price',
             'category',
+            'title',
             'description',
             'shot_description',
             'cover',
