@@ -16,7 +16,7 @@ class OrderGoodsSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = OrderGoods
-        fields = ['id', 'goods', 'size', 'count', 'price', 'created_at', 'active', 'cart', 'order']
+        fields = ['id', 'goods', 'count', 'price', 'created_at', 'active', 'cart', 'order']
 
     def to_internal_value(self, data):
         self.fields['goods'] = serializers.PrimaryKeyRelatedField(queryset=Goods.objects.all())
