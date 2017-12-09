@@ -21,22 +21,22 @@
             <router-link :to="{ name: 'contacts' }" class="header__item">Контакты</router-link>
           </div>
       </div>
-      <div class="header__basket">
-        <router-link :to="{ name: 'basket' }" tag="div" class="header__basket__img">
-          <div class="header__basket__img-count">2</div>
-        </router-link>
-        <div class="header__basket-price">1212 <span class="rubl" > &#8399;</span></div>
-      </div>
+        <basket-header></basket-header>
     </div>
   </div>
 </template>
 
 <script>
+  import basketHeader from './HeaderBasket.vue'
+
   export default {
     name: 'header',
     data () {
       return {
       }
+    },
+    components:{
+      basketHeader
     }
   }
 </script>
