@@ -17,7 +17,7 @@
                     >
                         Для оформления заказа выберите продукт
                     </div>
-                    <div class="basket-header__wrapper" v-if="basket.results && basket.results.length !== 0">
+                    <div class="basket-header__wrapper" v-if="basket.results.cart_goods && basket.results.cart_goods.length !== 0">
 
                         <div class="basket-header__item" v-for="cart in  basket.results.cart_goods">
                             <div class="basket-header__item-close" @click="switchItem(cart.id, 'deactivate')">+</div>
@@ -37,11 +37,11 @@
                                 </button>
                             </div>
                         </div>
-
+                        <router-link
+                                :to="{ name: 'basket' }" tag="button"
+                                class="header__basket_item-button">Оформить заказ</router-link>
                     </div>
-                    <router-link
-                            :to="{ name: 'basket' }" tag="button"
-                            class="header__basket_item-button">Оформить заказ</router-link>
+
                 </div>
             </transition>
         </div>

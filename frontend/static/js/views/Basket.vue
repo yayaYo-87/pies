@@ -53,7 +53,9 @@
       validation() {
         return this.$store.state.basket.validation
       }
-
+    },
+    created(){
+      this.$store.commit('results', { type: 'validation', items: 1})
     }
   }
 </script>
