@@ -59,6 +59,9 @@
         axios.get('/api/main_page/')
           .then(function (response) {
             self.result =  response.data[0]
+            self.$store.dispatch('loader', { value: false })
+
+
           })
       }
     },

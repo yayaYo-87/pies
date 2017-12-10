@@ -19,13 +19,14 @@
 @import "block/basket.styl"
 @import "block/loader.styl"
 @import "block/basketInfo.styl"
+@import "block/Preloader.styl"
 
 .app{
   font-family BeerRegular
 }
 
-.rubl {
-  font-family: PTSansRegular
+.rubl{
+  font-family: 'PT Sans',  serif;
 }
 .wrapper{
   min-height: 100%
@@ -36,7 +37,6 @@ body, html {
   height 100%
   min-height: 100%;
   min-width: 1240px
-  font-family: "PTSansRegular"
   color: #000;
   position: relative
 }
@@ -101,6 +101,8 @@ body {
 }
 .app{
   overflow: hidden
+  position: relative
+
 }
 .noSupport{
   width: 100%;
@@ -136,7 +138,6 @@ body {
 }
 .router-enter, .router-leave-to{
   opacity: 0;
-  transform scale(.98)
 }
 .popup-enter-active {
   transition: all .3s ease;

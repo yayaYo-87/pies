@@ -56,6 +56,10 @@
     },
     created(){
       this.$store.commit('results', { type: 'validation', items: 1})
+    },
+    mounted(){
+      this.$store.dispatch('loader', { value: false })
     }
+
   }
 </script>
