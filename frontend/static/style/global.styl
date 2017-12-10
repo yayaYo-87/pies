@@ -18,6 +18,8 @@
 @import "block/about.styl"
 @import "block/basket.styl"
 @import "block/loader.styl"
+@import "block/basketInfo.styl"
+
 .app{
   font-family BeerRegular
 }
@@ -97,7 +99,9 @@ body {
     text-align center
   }
 }
-
+.app{
+  overflow: hidden
+}
 .noSupport{
   width: 100%;
   height: 100%;
@@ -167,7 +171,7 @@ body {
   color: #464342
   background-color white
   top: 50%
-  font-family:  'MuseoSansMedium'
+  font-family YanoneRegular
   text-align center
   left: calc(50% - 140px)
   z-index: 20
@@ -178,6 +182,7 @@ body {
 @keyframes popup {
   0% {
     top: 50%
+
   }
   50% {
     top: 50%

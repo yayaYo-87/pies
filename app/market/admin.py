@@ -56,6 +56,7 @@ class GoodsAdmin(admin.ModelAdmin):
                     'articul',
                     'category',
                     'price',
+                    'title',
                     'description',
                     'shot_description',
                     'cover',

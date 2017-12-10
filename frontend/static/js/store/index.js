@@ -12,7 +12,7 @@ export default new Vuex.Store({
   actions,
   getters,
   modules: {
-   basket
+    basket,
   },
   strict: debug,
 })

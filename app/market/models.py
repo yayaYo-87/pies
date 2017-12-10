@@ -65,6 +65,7 @@ class Goods(models.Model):
     discount_price = models.PositiveIntegerField(verbose_name='Цена со скидкой', blank=False, default=0)
     description = RichTextUploadingField(verbose_name='Описание', blank=True)
     shot_description = models.TextField(verbose_name='Короткое описание', blank=True, null=True)
+    title = models.TextField(verbose_name='Анотация', blank=True, null=True)
     cover = models.ImageField(verbose_name='Выбрать фотографию обложки', blank=True, upload_to=upload_to)
 
     sort_index = models.PositiveIntegerField(verbose_name='Индекс сортировки', default=0)

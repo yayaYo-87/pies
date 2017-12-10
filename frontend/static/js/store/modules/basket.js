@@ -2,18 +2,8 @@ import axios from 'axios'
 
 const state = {
   results: [],
-  resultsCart: [],
-  phone: '',
-  city: '',
-  email: '',
-  hom: '',
-  FirstName:'',
-  LastName: '',
-  address: '',
-  index: '',
-  shiptor: [],
-  validation: 1,
-  comment: ''
+  validation: 1
+
 };
 
 
@@ -25,7 +15,7 @@ const actions = {
       .then(
         function (response) {
 
-          state.commit('results', { type: 'results', items: response.data});
+          state.commit('results', { type: 'results', items: response.data[0]});
 
         },
         function (error) {
