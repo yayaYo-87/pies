@@ -3,7 +3,6 @@ import Vuex from 'vuex'
 import * as actions from './actions'
 import * as getters from './getters'
 import basket from './modules/basket'
-import basketPopup from './modules/basketPopup'
 
 Vue.use(Vuex);
 
@@ -14,7 +13,6 @@ export default new Vuex.Store({
   getters,
   modules: {
     basket,
-    basketPopup
   },
   strict: debug,
 })

@@ -34,7 +34,7 @@
                                 <button class="item__button-sum" @click="countPlus()">+</button>
                             </div>
                             <div class="item__button_right">
-                                <button class="item-button" @click="postProduct()">Заказать</button>
+                                <button class="item-button" @click="postProduct()" :disabled="dis">Заказать</button>
                             </div>
                         </div>
                         <div class="item__teg">
@@ -85,6 +85,7 @@
     data() {
       return{
         count: 1,
+        dis: false,
         result: [],
         swiperOption: {
           slidesPerView: 3,
@@ -119,14 +120,16 @@
           })
       },
       postProduct(){
-        const self = this
+        const self = this;
+        self.dis = true;
         axios.post('/api/order_goods/', {
           "goods": self.result.id,
           "count": self.count,
         }).then(
           function (response) {
-            self.$store.dispatch('results')
-            self.animatePopup()
+            self.$store.dispatch('results');
+            self.animatePopup();
+            self.dis = false;
           },
           function (error) {
           }

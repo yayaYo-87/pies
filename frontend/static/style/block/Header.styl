@@ -74,6 +74,21 @@
     padding-right: 68px
     padding-top: 60px
     position: relative
+    &_item-button{
+      background-color: #de3346;
+      font-size: 14px;
+      font-weight: 700;
+      margin-top: 30px
+      font-family: CenturyRegular;
+      color: #fff;
+      border: none;
+      padding: 18px 20px
+      cursor: pointer;
+      -webkit-transition: 0.3s;
+      transition: 0.3s;
+      margin-left: 90px;
+      position: relative;
+    }
     &_wrapper{
       position: absolute
       z-index: 20
@@ -107,6 +122,7 @@
       color: #ba1125;
       margin-left: 15px
       margin-top: 14px
+
     }
   }
   &__items{
@@ -229,36 +245,17 @@
       transform: rotateY(360deg);
     }
   }
-  &_text{
-    color: #464342;
-    position: relative
-    cursor: pointer;
-    &:after{
-      content ''
-      position: absolute
-      top: 2px
-      left: -37px
-      background url("/static/img/crocs.svg") no-repeat
-      width: 30px
-      height: 12px
-    }
-  }
-  &_number{
-    background-color: #84b923;
-    border-radius 10px
-    color: #fff
-    width: 30px
-    text-align center
-    line-height: 20px
-    padding-top: 2px;
-    transition: transform .7s;
+  &__wrapper{
+    max-height: 200px
+    overflow: auto
+    padding-right: 10px
   }
   &__popup{
     position: relative
     width: 375px
     top: 20px
     right: 0px
-    padding: 20px 20px 20px 40px
+    padding: 20px 20px 20px 20px
     box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
     background-color #ffffff
     &_wrapper{
@@ -266,6 +263,7 @@
       z-index: 100
       top: 20px
       right: 0px
+
     }
     &:after{
       content: ''
@@ -279,23 +277,10 @@
       right: 50px
     }
     &_false{
-      font-size: 18px;
-      color: #464342;
-      text-align center
       font-family YanoneRegular
+      font-size 20px
+      text-align center
     }
-  }
-  &__wrapper{
-    .button{
-      margin-top: 0px
-      width: 420px
-    }
-  }
-  &__items{
-    max-height: calc(100vh - 250px)
-    overflow-y: auto
-    overflow-x hidden
-    padding-right: 20px
   }
   &__item{
     display: flex
@@ -303,27 +288,9 @@
     border-bottom: 1px solid #d8d8d8
     justify-content: space-between
     position: relative
-    &-active{
-      position: absolute
-      width: 100%
-      height: 90%
-      display: flex
-      justify-content: center
-      align-items center
-      .button{
-        margin-top: 0px
-        width: 200px
-        position: relative
-        z-index: 2
-      }
-      &:after{
-        content: ''
-        position: absolute
-        z-index: 1
-        background-color rgba(255, 255, 255, 0.82)
-        width: 100%
-        height: 100%
-      }
+    &-desc{
+      width: 170px
+      font-family YanoneRegular
     }
     &-close{
       cursor pointer
@@ -335,103 +302,31 @@
       font-size 30px
       transform rotate(45deg)
       transition .3s
+      z-index 2
       &:hover{
         color: rgba(150, 150, 150, 1)
       }
     }
     &-img{
-      width: 110px
+      width: 100px
       display: flex
       align-items center
       justify-content center
       height: 96px
       cursor: pointer
+      overflow: hidden
       img{
         width: 100%
       }
     }
-    &_price{
-      position: relative
-      width: 100px;
-      text-align: right;
-      margin-top: 21px
-      .price_active{
-        position: absolute
-        right: 0px
-        top: 24px
-        font-size: 14px;
-        &:after{
-          content: ''
-          position: absolute
-          height: 1px
-          width: 100%
-          background-color: #969696;
-          top: 50%
-          left: 0
-          transform rotate(15deg)
-        }
-      }
-      &-current{
-        color: #848484;
-        font-size: 20px;
-        font-family: 'MuseoSansMedium'
-        display: inline-block
-        float right
-      }
-      &-discount{
-        font-size: 20px;
-        color: #ca1f2a;
-        font-family: 'MuseoSansMedium'
-      }
-    }
-    &_info{
-      padding-left: 20px
-      width: 200px
-      &-name{
-        max-width: 180px
-        overflow hidden
-        white-space: nowrap
-        text-overflow: ellipsis;
-        margin-top: 20px
-        color: #464342;
-        line-height: 32px;
-        font-size: 18px;
-        font-family: 'MuseoSansMedium'
-      }
-      &-call{
-        display: flex
-        &_name{
-          padding-left: 15px
-          max-width: 100px
-          overflow hidden
-          white-space: nowrap
-          text-overflow: ellipsis;
-          &:first-child{
-            padding-left: 0px
-          }
-        }
-      }
-    }
-  }
-  &__total{
-    width: 100%
-    display: flex
-    margin-top: 10px
-    margin-bottom: 20px
-    justify-content: flex-end
-    align-items center
-    padding-right: 20px
-    &-name{
-      color: #969696;
-      font-size: 20px;
-      font-family: 'MuseoSansMedium'
-      line-height: 36px
-      margin-right: 15px
-    }
     &-price{
-      color: #464342;
-      font-size: 20px;
-      font-family: 'MuseoSansBold'
+      position: relative
+      font-family YanoneRegular
+      font-size 16px
+      width: 38px;
+      text-align: right;
+      display: flex
+      align-items: center
     }
   }
 }

@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const state = {
-
+  results: []
 
 };
 
@@ -14,7 +14,7 @@ const actions = {
       .then(
         function (response) {
 
-          state.commit('results', { type: 'results', items: response.data});
+          state.commit('results', { type: 'results', items: response.data[0]});
 
         },
         function (error) {
