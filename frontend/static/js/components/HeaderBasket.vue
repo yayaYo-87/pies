@@ -21,22 +21,27 @@
 
                         <div class="basket-header__item" v-for="cart in  basket.results.cart_goods">
                             <div class="basket-header__item-close" @click="switchItem(cart.id, 'deactivate')">+</div>
-                            <div class="basket-header__item-img">
+                            <router-link
+                                    :to="{ name: 'item', params: {id: 'all', item: cart.goods.id} }" tag="div"
+                                    class="basket-header__item-img">
                                 <img :src="cart.goods.cover" alt="cover">
+                            </router-link>
+                            <div class="basket-header__item-desc">
+                                {{cart.goods.name}} <br>
+                                Количество: {{ cart.count }}
                             </div>
-                            <div class="basket-header__item-desc">{{cart.goods.name}}</div>
                             <div class="basket-header__item-price">{{cart.goods.price}} <span class="rubl" > &#8399;</span></div>
                             <div class="basket-header__item-active" v-if="!cart.active">
-                                <button class="button button-green" @click="switchItem(cart.id , 'activate')">
-                                        <span>
-                                            Вернуть обратно
-                                        </span>
+                                <button class="basket-header_button" @click="switchItem(cart.id , 'activate')">
+                                    Вернуть обратно
                                 </button>
                             </div>
                         </div>
 
                     </div>
-                    <button class="header__basket_item-button">Оформить заказ</button>
+                    <router-link
+                            :to="{ name: 'basket' }" tag="button"
+                            class="header__basket_item-button">Оформить заказ</router-link>
                 </div>
             </transition>
         </div>

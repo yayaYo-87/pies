@@ -1,7 +1,8 @@
 import axios from 'axios'
 
 const state = {
-  results: []
+  results: [],
+  validation: 1
 
 };
 
