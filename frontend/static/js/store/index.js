@@ -3,6 +3,7 @@ import Vuex from 'vuex'
 import * as actions from './actions'
 import * as getters from './getters'
 import basket from './modules/basket'
+import loader from './modules/loader'
 
 Vue.use(Vuex);
 
@@ -13,6 +14,7 @@ export default new Vuex.Store({
   getters,
   modules: {
     basket,
+    loader
   },
   strict: debug,
 })

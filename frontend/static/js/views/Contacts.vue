@@ -66,28 +66,28 @@
                         </p>
                     </div>
                 </div><div class="contacts__item">
-                    <div class="contacts__item_title">
-                        <span class="contacts__item-icon"><img src="/static/img/contact4.png" alt="cover"></span>
-                        Всё о пирогах в социальных сетях
-                    </div>
-                    <div class="contacts__item_social">
-                        <a href="#" class="contacts__item-soc">
-                            <img src="/static/img/con1.png" alt="cover">
-                        </a>
-                        <a href="#" class="contacts__item-soc">
-                            <img src="/static/img/con2.png" alt="cover">
-                        </a>
-                        <a href="#" class="contacts__item-soc">
-                            <img src="/static/img/con3.png" alt="cover">
-                        </a>
-                        <a href="#" class="contacts__item-soc">
-                            <img src="/static/img/con4.png" alt="cover">
-                        </a>
-                        <a href="#" class="contacts__item-soc">
-                            <img src="/static/img/con5.png" alt="cover">
-                        </a>
-                    </div>
+                <div class="contacts__item_title">
+                    <span class="contacts__item-icon"><img src="/static/img/contact4.png" alt="cover"></span>
+                    Всё о пирогах в социальных сетях
                 </div>
+                <div class="contacts__item_social">
+                    <a href="#" class="contacts__item-soc">
+                        <img src="/static/img/con1.png" alt="cover">
+                    </a>
+                    <a href="#" class="contacts__item-soc">
+                        <img src="/static/img/con2.png" alt="cover">
+                    </a>
+                    <a href="#" class="contacts__item-soc">
+                        <img src="/static/img/con3.png" alt="cover">
+                    </a>
+                    <a href="#" class="contacts__item-soc">
+                        <img src="/static/img/con4.png" alt="cover">
+                    </a>
+                    <a href="#" class="contacts__item-soc">
+                        <img src="/static/img/con5.png" alt="cover">
+                    </a>
+                </div>
+            </div>
             </div>
             <div class="contacts__right">
                 <div class="contacts__title">Отправить сообщение</div>
@@ -113,6 +113,10 @@
       return{
 
       }
+    },
+    mounted(){
+      this.$store.dispatch('loader', { value: false })
     }
+
   }
 </script>

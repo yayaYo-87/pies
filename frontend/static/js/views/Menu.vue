@@ -68,12 +68,14 @@
             .then(function (response) {
               self.resultProduct = response.data;
               self.countProduct =  response.data.length
+              self.$store.dispatch('loader', { value: false })
             })
         } else {
           axios.get('/api/category/' + router + '/')
             .then(function (response) {
               self.resultProduct = response.data.goods;
               self.resultPage = response.data;
+              self.$store.dispatch('loader', { value: false })
               self.countProduct =  response.data.goods.length
             })
         }

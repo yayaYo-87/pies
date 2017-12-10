@@ -117,6 +117,7 @@
         axios.get('/api/goods/' + router + '/')
           .then(function (response) {
             self.result =  response.data
+            self.$store.dispatch('loader', { value: false })
           })
       },
       postProduct(){
