@@ -44,7 +44,6 @@ class CartSerializer(serializers.ModelSerializer):
 
 
 class OrderSerializer(serializers.ModelSerializer):
-    order_status = serializers.CharField(required=False)
     total = serializers.IntegerField(required=False)
     total_count = serializers.IntegerField(required=False)
 
@@ -54,6 +53,7 @@ class OrderSerializer(serializers.ModelSerializer):
             'id',
             # 'order_status',
             'total_count',
+            'address',
             'phone',
             'first_name',
             'last_name',

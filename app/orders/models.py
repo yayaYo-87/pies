@@ -28,7 +28,7 @@ class Order(models.Model):
     # order_status = models.CharField('Статус заказа', choices=STATUSES, max_length=10, null=False, blank=False)
     # order_delivery = models.CharField('Способ доставки', choices=DELIVERIES, max_length=16, null=True, blank=False)
     # city = models.CharField(max_length=255, verbose_name='Город доставки', blank=False, null=True)
-    # address = models.CharField(max_length=255, verbose_name='Адрес доставки', blank=False, null=True)
+    address = models.CharField(max_length=255, verbose_name='Адрес доставки', blank=False, null=True)
     # index = models.CharField(max_length=255, verbose_name='Индекс доставки', blank=False, null=True)
     # home = models.CharField(max_length=256, verbose_name='Дом', blank=False, null=True)
     first_name = models.CharField(max_length=255, verbose_name='Имя', blank=False, null=True)
