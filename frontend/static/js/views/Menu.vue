@@ -23,17 +23,14 @@
                             <div class="menu__list_hover">
                                 <router-link :to="{ name:'item', params: { id: $route.params.id, item: item.id } }"
                                              class="menu__list_hover-top">Быстрый просмотр</router-link>
-                                <div class="menu__list_hover-bottom">Быстрый заказ</div>
+                                <div @click="postProductFair(item.id)" class="menu__list_hover-bottom">Быстрый заказ</div>
                             </div>
                         </div>
                         <div class="menu__list_desc">
                             <div class="menu__list_title">{{ item.name }}</div>
                         </div>
                         <div class="menu__list_price">{{ item.price }} руб.</div>
-                        <router-link
-                                tag="button"
-                                :to="{ name:'item', params: { id: $route.params.id, item: item.id } }"
-                                class="menu__list_button">Заказать</router-link>
+                        <button @click="postProduct(item.id)" class="menu__list_button">Заказать</button>
                     </div>
                 </div>
             </div>
@@ -80,6 +77,46 @@
               self.countProduct =  response.data.goods.length
             })
         }
+      },
+      animatePopup(){
+        const newDiv = document.createElement('div');
+        newDiv.classList.add('popup')
+        newDiv.innerHTML = 'Товар добавлен в корзину';
+
+        document.body.appendChild(newDiv)
+
+        setTimeout(function () {
+          document.body.removeChild(newDiv)
+        }, 3000)
+      },
+      postProduct(id){
+        const self = this;
+        axios.post('/api/order_goods/', {
+          "goods": id,
+          "count": 1,
+        }).then(
+          function (response) {
+            self.$store.dispatch('results');
+            self.animatePopup();
+          },
+          function (error) {
+          }
+        )
+      },
+      postProductFair(id){
+        const self = this;
+        axios.post('/api/order_goods/', {
+          "goods": id,
+          "count": 1,
+        }).then(
+          function (response) {
+            self.$store.dispatch('results');
+            self.animatePopup();
+            self.$router.push({name: 'basket' })
+          },
+          function (error) {
+          }
+        )
       }
     },
     created(){
