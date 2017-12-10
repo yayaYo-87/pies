@@ -1,27 +1,6 @@
 <template>
   <div class="app" id="app">
     <header-block></header-block>
-    <!--<transition name="loader"  >-->
-      <!--<div class="loader" v-if="loader" >-->
-        <!--<h1 class="loader_h">Пирог в процессе...</h1>-->
-        <!--<div id="cooking">-->
-          <!--<div class="bubble"></div>-->
-          <!--<div class="bubble"></div>-->
-          <!--<div class="bubble"></div>-->
-          <!--<div class="bubble"></div>-->
-          <!--<div class="bubble"></div>-->
-          <!--<div id="area">-->
-            <!--<div id="sides">-->
-              <!--<div id="pan"></div>-->
-              <!--<div id="handle"></div>-->
-            <!--</div>-->
-            <!--<div id="pancake">-->
-              <!--<div id="pastry"></div>-->
-            <!--</div>-->
-          <!--</div>-->
-        <!--</div>-->
-      <!--</div>-->
-    <!--</transition>-->
     <transition name="router" mode="out-in" >
       <router-view/>
     </transition>
@@ -51,11 +30,20 @@
     },
     methods:{
       loaderOk(){
-        this.loader = false
-      }
+        const loader = document.getElementById('loader')
+
+
+        window.addEventListener('load', function() {
+          loader.style.opacity = 0;
+          setTimeout(function () {
+            document.body.removeChild(loader)
+          }, 1000)
+        });
+
+      },
     },
     mounted(){
-//      this.loaderOk()
+      this.loaderOk()
     }
   }
 </script>
