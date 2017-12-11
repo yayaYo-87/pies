@@ -79,8 +79,8 @@
           "total": self.basket.results.price,
         }).then(
           function (response) {
-            this.$store.commit('results', { type: 'validation', items: 3})
-
+            self.$store.commit('results', { type: 'validation', items: 3})
+            self.$store.dispatch('results');
           }, function (error) {
           }
         )

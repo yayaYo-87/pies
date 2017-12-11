@@ -40,6 +40,7 @@
 
                     </div>
                     <router-link
+                            v-if="basket.results.cart_goods && basket.results.cart_goods.length !== 0"
                             :to="{ name: 'basket' }" tag="button"
                             class="header__basket_item-button">Оформить заказ</router-link>
                 </div>

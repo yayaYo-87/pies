@@ -15,17 +15,20 @@
                     <img src="/static/img/basket1.png" alt="cover">
                 </div>
                 <div class="basket__item"
-                     :class="{'basket__item-active' : validation === 2}"
+                     :class="{'basket__item-active' : validation === 2 || validation === 3}"
                 >
                     <img src="/static/img/basket2.png" alt="cover">
                 </div>
-                <div class="basket__item">
+                <div class="basket__item"
+                :class="{'basket__item-active' : validation === 3}"
+                >
                     <img src="/static/img/basket3.png" alt="cover">
                 </div>
             </div>
         </div>
         <basket-cart ></basket-cart>
         <basket-info></basket-info>
+        <basket-end></basket-end>
     </div>
 </template>
 
@@ -33,6 +36,7 @@
 
   import basketCart from '../components/BasketCart.vue'
   import basketInfo from '../components/BasketInfo.vue'
+  import basketEnd from '../components/BasketEnd.vue'
 
   export default {
     data(){
@@ -42,7 +46,8 @@
     },
     components:{
       basketCart,
-      basketInfo
+      basketInfo,
+      basketEnd
     },
     methods:{
       next(value){
