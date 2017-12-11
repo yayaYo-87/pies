@@ -29,8 +29,27 @@
                         <div class="menu__list_desc">
                             <div class="menu__list_title">{{ item.name }}</div>
                         </div>
-                        <div class="menu__list_price">{{ item.price }} руб.</div>
-                        <button @click="postProduct(item.id)" class="menu__list_button">Заказать</button>
+                        <div class="menu__list_bottom">
+                            <div class="menu__list_bottom-left">
+                                <div class="menu_input">
+                                    <div class="menu_input-active">1000Г</div>
+                                    <div class="menu_input-popup">
+                                        <div class="menu_input-popup_item">1000Г</div>
+                                        <div class="menu_input-popup_item">2000Г</div>
+                                        <div class="menu_input-popup_item">3000Г</div>
+                                    </div>
+                                </div>
+                                <div class="menu_count">
+                                    <button class="menu_count-minus">-</button>
+                                    <div class="menu_count-count">1</div>
+                                    <button class="menu_count-plus">+</button>
+                                </div>
+                            </div>
+                            <div class="menu__list_bottom-right">
+                                <div class="menu__list_price">{{ item.price }} руб.</div>
+                                <button @click="postProduct(item.id)" class="menu__list_button">Заказать</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
