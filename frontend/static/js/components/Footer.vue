@@ -11,7 +11,9 @@
       </div>
       <div class="footer__contacts">
         <div class="footer__contacts-item">Наши контакты</div>
-        <a href="tel:+7 (495) 369-37-45" class="footer__contacts-tel">+7 (495) 369-37-45</a>
+        <a href="tel:+7 (495) 589-36-93" class="footer__contacts-tel">+7 (495) 589-36-93</a>
+        <a href="tel:+7 (903) 724-03-10" class="footer__contacts-tel">+7 (903) 724-03-10</a>
+        <a href="tel:+7 (495) 724-03-10" class="footer__contacts-tel">+7 (495) 724-03-10</a>
         <div class="footer__contacts_date">пн-сб: с 9:00 до 21:00</br>вс: с 10:00 до 21:00</div>
       </div>
 

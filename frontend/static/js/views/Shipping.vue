@@ -56,14 +56,14 @@
                                 <span class="shipping_red">по телефону:</span>
                             </p>
                             <p>
-                                <a href="tel:8 (495) 724-03-10" class="shipping_bold">8 (495) 724-03-10</a>
+                                <a href="tel:+7 (495) 589-36-93" class="shipping_bold">+7 (495) 589-36-93</a>
                             </p>
                             <p>
-                                или
+                                <a href="tel:+7 (903) 724-03-10" class="shipping_bold">+7 (903) 724-03-10</a>
 
                             </p>
                             <p>
-                                <a href="tel:8 (495) 589-36-93" class="shipping_bold">8 (495) 589-36-93</a>
+                                <a href="tel:+7 (495) 724-03-10" class="shipping_bold">+7 (495) 724-03-10</a>
 
                             </p>
                         </div>

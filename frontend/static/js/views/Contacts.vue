@@ -45,7 +45,7 @@
                         E-mail
                     </div>
                     <div class="contacts__item_desc">
-                        <a target="_blank" href="mailto:mail@mail.com">mail@mail.com</a>
+                        <a target="_blank" href="mailto:pirogi-m@mail.ru">pirogi-m@mail.ru</a>
                     </div>
                 </div>
                 <div class="contacts__item">

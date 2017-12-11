@@ -23,7 +23,7 @@
         </div>
         <div class="index__image_title index__image_title-bottom">
             <span class="index__image_title-text">ФАКТЫ О НАС</span>
-            <div class="index__image_title-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</div>
+            <div class="index__image_title-desc">Первый пирог мы доставили в 2008 год</div>
             <div class="index__image_list">
                 <div class="index__image_list-item">
                     <div class="index__image_list-img">
