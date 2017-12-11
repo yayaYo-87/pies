@@ -7,7 +7,7 @@
             <div class="index__popular_items">
 
                 <div class="index__popular_item"
-                    v-for="item in result">
+                     v-for="item in result">
                     <div class="popular_img">
                         <img :src="item.goods.cover" alt="cover" class="index__popular_img-cover">
                         <div class="popular_img-wrapper">
@@ -17,7 +17,7 @@
                                     <img src="/static/img/lypa.png" alt="cover">
                                 </span>
                             </router-link>
-                            <div class="popular_img-bottom">Быстрый заказ <span><img src="/static/img/fire.png" alt="cover"></span></div>
+                            <div class="popular_img-bottom" @click="postProductFair(item.goods.id)">Быстрый заказ <span><img src="/static/img/fire.png" alt="cover"></span></div>
                         </div>
                     </div>
                     <div class="popular_item-text">
@@ -35,6 +35,8 @@
 </template>
 
 <script>
+  import axios from 'axios'
+
   export default {
     props: ['result'],
     name: 'indexPopular',
@@ -42,6 +44,35 @@
       return{
 
       }
+    },
+    methods:{
+      postProductFair(id){
+        const self = this;
+        axios.post('/api/order_goods/', {
+          "goods": id,
+          "count": 1,
+        }).then(
+          function (response) {
+            self.$store.dispatch('results');
+            self.animatePopup();
+            self.$router.push({name: 'basket' })
+          },
+          function (error) {
+          }
+        )
+      },
+      animatePopup(){
+        const newDiv = document.createElement('div');
+        newDiv.classList.add('popup')
+        newDiv.innerHTML = 'Товар добавлен в корзину';
+
+        document.body.appendChild(newDiv)
+
+        setTimeout(function () {
+          document.body.removeChild(newDiv)
+        }, 3000)
+      },
+
     }
   }
 </script>

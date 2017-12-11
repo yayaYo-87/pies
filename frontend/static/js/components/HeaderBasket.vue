@@ -37,11 +37,11 @@
                                 </button>
                             </div>
                         </div>
-                        <router-link
-                                :to="{ name: 'basket' }" tag="button"
-                                class="header__basket_item-button">Оформить заказ</router-link>
-                    </div>
 
+                    </div>
+                    <router-link
+                            :to="{ name: 'basket' }" tag="button"
+                            class="header__basket_item-button">Оформить заказ</router-link>
                 </div>
             </transition>
         </div>
