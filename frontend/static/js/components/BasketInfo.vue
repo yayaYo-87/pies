@@ -3,14 +3,9 @@
         <div class="basket__info">
             <div class="basket__info_title">Ваши данные:</div>
             <div class="basket__info_input">
-                <label for="name">Имя:</label>
-                <input type="text" id="name" class="form_input" placeholder="Введите имя..." v-model="firstName">
+                <label for="name">Имя и Фамилия:</label>
+                <input type="text" id="name" class="form_input" placeholder="Введите Имя и Фамилию..." v-model="firstName">
                 <div class="valid" v-show="!validation.FirstName">*Введите корректное Имя</div>
-            </div>
-            <div class="basket__info_input">
-                <label for="lastname">Фамилия:</label>
-                <input type="text" id="lastname" class="form_input" placeholder="Введите фамилию..." v-model="lastName">
-                <div class="valid" v-show="!validation.lastName">*Введите корректную Фамилию</div>
             </div>
             <div class="basket__info_input">
                 <label for="phone">Телефон:</label>
@@ -40,7 +35,6 @@
       return {
         buttonDisabled: true,
         email: '',
-        lastName: '',
         firstName: '',
         phone: '',
         address: '',
@@ -74,7 +68,7 @@
           "total_count": self.basket.results.total_count,
           "address": self.address,
           "first_name": self.firstName,
-          "last_name": self.lastName,
+          "email": self.email,
           "phone": self.phone,
           "total": self.basket.results.price,
         }).then(
@@ -98,7 +92,6 @@
       validation: function () {
         return {
           FirstName: !!this.firstName.trim(),
-          lastName: !!this.lastName.trim(),
           address: !!this.address.trim(),
           phone: this.telRE.test(this.phone),
           email: this.emailRE.test(this.email),
