@@ -2,7 +2,9 @@
   <div class="header">
     <div class="header__top">
       <div class="header__phone">
-        <a class="header__phone-number" href="tel:+74954097400">+7 (495) 369-37-45</a>
+        <a class="header__phone-number" href="tel:+7(495)589-36-93">+7 (495) 589-36-93</a>
+        <a class="header__phone-number" href="tel:+7(903)724-03-10">+7 (903) 724-03-10</a>
+        <a class="header__phone-number" href="tel:+7(495)724-03-10">+7 (495) 724-03-10</a>
         <div class="header__phone-text">пн-сб: с 9:00 до 21:00 </br> вс: с 10:00 до 21:00</div>
       </div>
       <div class="header__title">
