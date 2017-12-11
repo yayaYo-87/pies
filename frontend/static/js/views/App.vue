@@ -67,7 +67,7 @@
     },
 
     mounted(){
-      this.loaderOk()
+//      this.loaderOk()
     }
   }
 </script>
