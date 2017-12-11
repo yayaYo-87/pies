@@ -15,7 +15,7 @@
                                 <div class="order__slider_text">{{ item.goods.shot_description }}</div>
                                 <div class="order__slider_desc">Sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea</div>
                                 <div class="order__slider_button">
-                                    <button class="order__slider_button-left">Заказать</button>
+                                    <button class="order__slider_button-left" @click="postProductFair(item.goods.id)">Заказать</button>
                                     <router-link
                                             tag="button"
                                             :to="{ name: 'item', params: {id: 'all', item: item.goods.id } }"
@@ -36,6 +36,7 @@
 </template>
 
 <script>
+  import axios from 'axios'
   export default {
     props: ['result'],
     data(){
@@ -48,6 +49,36 @@
         }
 
       }
+    },
+    methods:{
+      postProductFair(id){
+        const self = this;
+        axios.post('/api/order_goods/', {
+          "goods": id,
+          "count": 1,
+        }).then(
+          function (response) {
+            self.$store.dispatch('results');
+            self.animatePopup();
+            self.$router.push({name: 'basket' })
+          },
+          function (error) {
+          }
+        )
+      },
+      animatePopup(){
+        const newDiv = document.createElement('div');
+        newDiv.classList.add('popup')
+        newDiv.innerHTML = 'Товар добавлен в корзину';
+
+        document.body.appendChild(newDiv)
+
+        setTimeout(function () {
+          document.body.removeChild(newDiv)
+        }, 3000)
+      },
+
     }
+
   }
 </script>
