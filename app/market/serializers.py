@@ -2,7 +2,7 @@ from rest_framework import pagination
 from rest_framework import serializers
 from rest_framework.settings import api_settings
 
-from app.market.models import GoodsConsist, Tag, Goods, Category
+from app.market.models import GoodsConsist, Tag, Goods, Category, GoodsWeight
 
 
 class TagsSerializer(serializers.ModelSerializer):
@@ -17,16 +17,26 @@ class GoodsConsistSerialiser(serializers.ModelSerializer):
         fields = ['id', 'text_item', 'sort_index']
 
 
+class GoodsWeightSerialiser(serializers.ModelSerializer):
+    class Meta:
+        model = GoodsWeight
+        fields = ['id', 'weight', 'price', 'discount_price', 'sort_index']
+
+
 class GoodsSerializer(serializers.ModelSerializer):
+    goods_weight = GoodsWeightSerialiser(many=True)
+    tag = TagsSerializer(many=True, required=False)
+
     class Meta:
         model = Goods
         fields = [
             'id',
             'name',
-            'price',
+            'goods_weight',
             'cover',
             'title',
             'shot_description',
+            'tag',
         ]
 
 
@@ -40,6 +50,7 @@ class GoodsDetailSerializer(serializers.ModelSerializer):
     tag = TagsSerializer(many=True, required=False)
     category = CategoryGoodsSerializer(many=True, required=False)
     goods_consist = GoodsConsistSerialiser(many=True)
+    goods_weight = GoodsWeightSerialiser(many=True)
 
     class Meta:
         model = Goods
@@ -47,8 +58,9 @@ class GoodsDetailSerializer(serializers.ModelSerializer):
             'id',
             'name',
             'articul',
-            'price',
+            # 'price',
             'category',
+            'goods_weight',
             'title',
             'description',
             'shot_description',

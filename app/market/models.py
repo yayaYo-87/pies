@@ -61,8 +61,8 @@ class Goods(models.Model):
 
     name = models.CharField(verbose_name='Название', max_length=256)
     articul = models.CharField(verbose_name='Артикул товара', max_length=256, null=True, blank=False)
-    price = models.PositiveIntegerField(verbose_name='Цена', blank=False)
-    discount_price = models.PositiveIntegerField(verbose_name='Цена со скидкой', blank=False, default=0)
+    # price = models.PositiveIntegerField(verbose_name='Цена', blank=False)
+    # discount_price = models.PositiveIntegerField(verbose_name='Цена со скидкой', blank=False, default=0)
     description = RichTextUploadingField(verbose_name='Описание', blank=True)
     shot_description = models.TextField(verbose_name='Короткое описание', blank=True, null=True)
     title = models.TextField(verbose_name='Анотация', blank=True, null=True)
@@ -89,3 +89,15 @@ class Goods(models.Model):
         verbose_name_plural = 'Товары'
         ordering = ['sort_index']
 
+
+class GoodsWeight(models.Model):
+    goods = models.ForeignKey(Goods, verbose_name='Товар', related_name='goods_weight')
+    weight = models.PositiveIntegerField(verbose_name='Вес товара', default=0)
+    price = models.PositiveIntegerField(verbose_name='Цена даного веса', default=0)
+    discount_price = models.PositiveIntegerField(verbose_name='Цена со скидкой', blank=False, default=0)
+    sort_index = models.PositiveIntegerField(verbose_name='Индекс сортировки', default=0)
+
+    class Meta:
+        verbose_name = 'Вес и цена товара'
+        verbose_name_plural = 'Вес и цена товара'
+        ordering = ['sort_index']

@@ -1,7 +1,7 @@
 from django.db import models
 from django.db.models import Sum
 
-from app.market.models import Goods
+from app.market.models import Goods, GoodsWeight
 
 
 class Order(models.Model):
@@ -72,6 +72,7 @@ class OrderGoods(models.Model):
     order = models.ForeignKey(Order, verbose_name='Заказанный товар', related_name='order_goods', blank=True, null=True)
     cart = models.ForeignKey('Cart', verbose_name='Корзина', related_name='cart_goods', blank=True, null=True)
     goods = models.ForeignKey(Goods, verbose_name='Товар', null=True)
+    weight = models.ForeignKey(GoodsWeight, verbose_name='Вес товара', null=False)
     count = models.PositiveIntegerField(verbose_name='Количество')
     price = models.PositiveIntegerField(verbose_name='Цена', default=0)
     created_at = models.DateTimeField(verbose_name='Дата создания', blank=True, null=True, auto_now=False)
@@ -92,7 +93,11 @@ class OrderGoods(models.Model):
         ordering = ['id']
 
     def get_price(self):
-        return self.goods.price * self.count
+        if self.weight.discount_price:
+            price = self.weight.discount_price
+        else:
+            price = self.weight.price
+        return price * self.count
 
 
 class Cart(models.Model):
