@@ -2,7 +2,7 @@
     <div class="index__order">
         <div class="index__order_wrapper">
             <div class="index__order_title">
-                <span class="index__order_title-text">ЗАКАЗАЖИ СОЧНУЮ ПИЦЦУ <span>ПРЯМО СЕЙЧАС</span></span>
+                <span class="index__order_title-text"></span>
             </div>
             <div class="index__order_slider">
                 <swiper :options="swiperOption">

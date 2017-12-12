@@ -131,11 +131,11 @@
     display flex
     flex-wrap wrap
     &_item{
-      flex calc( 33.3% - 50px )
+      flex 32%
+      max-width: 277px;
       margin-right: 50px
-      max-width 284px
+      width 284px
       margin-bottom: 35px
-      overflow: hidden
       &:nth-child(3n + 3){
         margin-right: 0px
       }
@@ -145,6 +145,21 @@
         }
       }
     }
+    &_bottom{
+      display: flex
+      &-left{
+        flex: 50%
+      }
+      &-right{
+        flex: 50%
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+      }
+    }
+
+
+
     &_desc{
       margin-top: 25px
       font-size: 22px;
@@ -163,20 +178,23 @@
       font-family CenturyRegular
       font-weight: 700;
       color: #ba1125;
-      padding-bottom: 15px
-      padding-top: 10px
+      padding-bottom: 11px;
+      text-align: right;
+      padding-top: 20px;
     }
     &_button{
       background-color: #de3346;
       font-size: 17px;
+      width: 130px;
       font-weight: 700;
       font-family CenturyRegular
       color: #ffffff;
       border none
-      padding: 18px 54px 18px 20px
+      padding: 13px 43px 13px 17px;
       cursor: pointer
       transition .3s
       position: relative
+      border-radius 3px
       &:after{
         content: ''
         background url("/static/img/basketlist.svg") no-repeat
@@ -184,8 +202,9 @@
         width: 16px
         height: 16px
         position: absolute
-        top: 20px
-        right: 20px
+        top: 16px;
+        right: 15px;
+
       }
       &:hover{
         opacity: .8
@@ -298,6 +317,121 @@
           color: white
         }
       }
+    }
+  }
+  &_count{
+    display: flex
+  }
+  &_input{
+    margin-top:10px
+    position: relative
+    &-popup{
+      position: absolute
+      top: 37px;
+      width: 120px;
+      left: 0px
+      z-index 2
+      display: none
+      transition .5s
+      border-left: 1px solid #dcdcdc;
+      border-right: 1px solid #dcdcdc;
+      &_item{
+        color: #201f1f;
+        cursor: pointer
+        background: #fef9eb;
+        padding: 0 5px;
+        font-family: CenturyRegular;
+        line-height: 35px;
+        font-size: 18px;
+        border-bottom: 1px solid #dcdcdc;
+        transition .3s;
+        &-active{
+          background-color white
+        }
+        &:hover{
+          background-color white
+        }
+      }
+    }
+    &-active{
+      border: 1px solid #dcdcdc;
+      position: relative
+      font-size: 18px;
+      line-height: 35px;
+      border-radius 5px
+      background: #fef9eb;
+      color: #323232;
+      padding-left 5px
+      width: 131px;
+      cursor pointer
+      font-family: CenturyRegular;
+      &:before{
+        content: '';
+        position: absolute;
+        right: 0;
+        border-radius 0px 5px 5px 0px
+        top: 0;
+        width: 33px;
+        height: 100%;
+        background: #fff;
+        border-left: 1px solid #dcdcdc;
+      }
+      &:after{
+        content: '';
+        position: absolute;
+        right: 11px;
+        top: 16px;
+        display: block;
+        margin: 0;
+        padding: 0;
+        background: url('/static/img/sprite.png') no-repeat -13px -19px;
+        width: 11px;
+        height: 6px;
+      }
+    }
+  }
+  &_count{
+    margin-top: 10px
+    &-minus{
+      width: 33px;
+      height: 47px;
+      margin: 0;
+      padding: 0;
+      border: 1px solid #dcdcdc;
+      border-radius: 3px;
+      background: #fff;
+      line-height: 35px;
+      text-align: center;
+      font-size: 18px;
+      color: #5d1900;
+      font-family CenturyRegular
+    }
+    &-plus{
+      width: 33px;
+      height:47px;
+      margin: 0;
+      padding: 0;
+      border: 1px solid #dcdcdc;
+      border-radius: 3px;
+      background: #fff;
+      line-height: 35px;
+      text-align: center;
+      font-family CenturyRegular
+      font-size: 18px;
+      color: #5d1900;
+    }
+    &-count{
+      width: 65px;
+      height: 47px;
+      margin: 0;
+      padding: 2px 5px;
+      border: 1px solid #dcdcdc;
+      background: #fef9eb;
+      line-height: 41px;
+      font-size: 20px;
+      font-family CenturyRegular
+      color: #323232;
+      text-align: center;
     }
   }
 }
