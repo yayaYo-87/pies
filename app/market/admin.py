@@ -45,7 +45,7 @@ class GoodsConsistInline(admin.TabularInline):
 class GoodsWeightInline(admin.TabularInline):
     model = GoodsWeight
     fields = ['weight', 'price', 'discount_price', 'sort_index']
-    extra = 1
+    extra = 0
     suit_classes = 'suit-tab suit-tab-general'
 
 
