@@ -7,7 +7,7 @@ from app.orders.models import OrderGoods, Cart, Order
 class GoodsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Goods
-        fields = ['id', 'name', 'price', 'category', 'cover', 'title']
+        fields = ['id', 'name', 'category', 'cover', 'title']
 
 
 class GoodsWeightSerialiser(serializers.ModelSerializer):
