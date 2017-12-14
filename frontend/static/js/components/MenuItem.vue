@@ -53,6 +53,7 @@
         popup: false,
         count: 1,
         weightActive: 0,
+        weightId: 0,
         price: 0,
 
       }
@@ -63,9 +64,11 @@
         if(item.discount_price === 0) {
           this.price = item.price
           this.weightActive = item.weight
+          this.weightId = item.id
         } else {
           this.price = item.discount_price
           this.weightActive = item.weight
+          this.weightId = item.id
         }
       },
       countPlus(){
@@ -86,7 +89,7 @@
           "goods": id,
           "count": self.count,
           "price": self.price,
-          "weight": self.weightActive,
+          "weight": self.weightId,
         }).then(
           function (response) {
             self.$store.dispatch('results');
@@ -103,7 +106,7 @@
           "goods": id,
           "count": self.count,
           "price": self.price,
-          "weight": self.weightActive,
+          "weight": self.weightId,
         }).then(
           function (response) {
             self.$store.dispatch('results');
@@ -129,9 +132,11 @@
       if(this.itemProduct.goods_weight[0].discount_price === 0) {
         this.price = this.itemProduct.goods_weight[0].price
         this.weightActive = this.itemProduct.goods_weight[0].weight
+        this.weightId = this.itemProduct.goods_weight[0].id
       } else {
         this.price = this.itemProduct.goods_weight[0].discount_price
         this.weightActive = this.itemProduct.goods_weight[0].weight
+        this.weightId = this.itemProduct.goods_weight[0].id
       }
     }
   }
