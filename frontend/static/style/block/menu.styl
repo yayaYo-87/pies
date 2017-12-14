@@ -327,11 +327,10 @@
     position: relative
     &-popup{
       position: absolute
-      top: 37px;
-      width: 120px;
       left: 0px
+      top: 37px;
+      width: 131px;
       z-index 2
-      display: none
       transition .5s
       border-left: 1px solid #dcdcdc;
       border-right: 1px solid #dcdcdc;
@@ -388,6 +387,12 @@
         width: 11px;
         height: 6px;
       }
+      &-true{
+        border-radius  5px 5px 0px 0px
+        &:after{
+          transform rotate(180deg)
+        }
+      }
     }
   }
   &_count{
@@ -402,11 +407,21 @@
       background: #fff;
       line-height: 35px;
       text-align: center;
+      cursor: pointer
       font-size: 18px;
       color: #5d1900;
       font-family CenturyRegular
+      transition .3s
+      &:hover{
+        background-color #fef9eb
+      }
+      &:disabled{
+        opacity: .4
+        cursor: default
+      }
     }
     &-plus{
+      cursor: pointer
       width: 33px;
       height:47px;
       margin: 0;
@@ -419,6 +434,10 @@
       font-family CenturyRegular
       font-size: 18px;
       color: #5d1900;
+      transition .3s
+      &:hover{
+        background-color #fef9eb
+      }
     }
     &-count{
       width: 65px;

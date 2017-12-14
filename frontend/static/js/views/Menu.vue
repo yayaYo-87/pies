@@ -17,40 +17,11 @@
         <div class="menu__wrapper">
             <div class="menu__left">
                 <div class="menu__list">
-                    <div class="menu__list_item" v-for="item in resultProduct">
-                        <div class="menu__list_cover">
-                            <img :src="item.cover" alt="cover">
-                            <div class="menu__list_hover">
-                                <router-link :to="{ name:'item', params: { id: $route.params.id, item: item.id } }"
-                                             class="menu__list_hover-top">Быстрый просмотр</router-link>
-                                <div @click="postProductFair(item.id)" class="menu__list_hover-bottom">Быстрый заказ</div>
-                            </div>
-                        </div>
-                        <div class="menu__list_desc">
-                            <div class="menu__list_title">{{ item.name }}</div>
-                        </div>
-                        <div class="menu__list_bottom">
-                            <div class="menu__list_bottom-left">
-                                <div class="menu_input">
-                                    <div class="menu_input-active">1000Г</div>
-                                    <div class="menu_input-popup">
-                                        <div class="menu_input-popup_item">1000Г</div>
-                                        <div class="menu_input-popup_item">2000Г</div>
-                                        <div class="menu_input-popup_item">3000Г</div>
-                                    </div>
-                                </div>
-                                <div class="menu_count">
-                                    <button class="menu_count-minus">-</button>
-                                    <div class="menu_count-count">1</div>
-                                    <button class="menu_count-plus">+</button>
-                                </div>
-                            </div>
-                            <div class="menu__list_bottom-right">
-                                <div class="menu__list_price">{{ item.price }} руб.</div>
-                                <button @click="postProduct(item.id)" class="menu__list_button">Заказать</button>
-                            </div>
-                        </div>
-                    </div>
+                    <menu-item-block
+                            v-for="(item, index) in resultProduct"
+                            :key="index"
+                            :itemProduct="item"
+                    ></menu-item-block>
                 </div>
             </div>
             <menu-bar></menu-bar>
@@ -62,6 +33,7 @@
 <script>
   import menuBar from '../components/MenuBar.vue'
   import axios from 'axios'
+  import menuItemBlock from '../components/MenuItem.vue'
 
   export default {
     name: 'menu',
@@ -73,7 +45,8 @@
       }
     },
     components:{
-      menuBar
+      menuBar,
+      menuItemBlock
     },
     watch: {
       '$route.params.id' : 'get'
@@ -99,46 +72,6 @@
             })
         }
       },
-      animatePopup(){
-        const newDiv = document.createElement('div');
-        newDiv.classList.add('popup')
-        newDiv.innerHTML = 'Товар добавлен в корзину';
-
-        document.body.appendChild(newDiv)
-
-        setTimeout(function () {
-          document.body.removeChild(newDiv)
-        }, 3000)
-      },
-      postProduct(id){
-        const self = this;
-        axios.post('/api/order_goods/', {
-          "goods": id,
-          "count": 1,
-        }).then(
-          function (response) {
-            self.$store.dispatch('results');
-            self.animatePopup();
-          },
-          function (error) {
-          }
-        )
-      },
-      postProductFair(id){
-        const self = this;
-        axios.post('/api/order_goods/', {
-          "goods": id,
-          "count": 1,
-        }).then(
-          function (response) {
-            self.$store.dispatch('results');
-            self.animatePopup();
-            self.$router.push({name: 'basket' })
-          },
-          function (error) {
-          }
-        )
-      }
     },
     created(){
       this.get()
