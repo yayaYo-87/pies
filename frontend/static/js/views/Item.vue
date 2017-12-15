@@ -100,6 +100,22 @@
 
   export default {
     name:'item',
+    metaInfo () {
+      return {
+        title: this.result.meta_title,
+        titleTemplate: '%s | Осетинские пироги',
+        meta: [
+          {
+            name: 'description' ,
+            content: this.result.meta_description
+          },
+          {
+            name: 'keywords',
+            content: this.result.meta_keywords
+          },
+        ]
+      }
+    },
     data() {
       return{
         dis: false,
