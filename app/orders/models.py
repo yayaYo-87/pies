@@ -81,23 +81,23 @@ class OrderGoods(models.Model):
     def __str__(self):
         return 'Заказанный товар "{}" для заказа #{}'.format(self.goods, self.order_id)
 
-    # def save(self, *args, **kwargs):
-    #     if not self.pk:
-    #         super(OrderGoods, self).save(*args, **kwargs)
-    #     self.price = self.get_price()
-    #     super(OrderGoods, self).save(*args, **kwargs)
+    def save(self, *args, **kwargs):
+        if not self.pk:
+            super(OrderGoods, self).save(*args, **kwargs)
+        self.price = self.get_price()
+        super(OrderGoods, self).save(*args, **kwargs)
 
     class Meta:
         verbose_name = 'Заказаннай товар'
         verbose_name_plural = 'Заказанные товары'
         ordering = ['id']
 
-    # def get_price(self):
-    #     if self.weight.discount_price:
-    #         price = self.weight.discount_price
-    #     else:
-    #         price = self.weight.price
-    #     return price * self.count
+    def get_price(self):
+        if self.weight.discount_price:
+            price = self.weight.discount_price
+        else:
+            price = self.weight.price
+        return price * self.count
 
 
 class Cart(models.Model):
