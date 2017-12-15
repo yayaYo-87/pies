@@ -97,6 +97,9 @@ class GoodsWeight(models.Model):
     discount_price = models.PositiveIntegerField(verbose_name='Цена со скидкой', blank=False, default=0)
     sort_index = models.PositiveIntegerField(verbose_name='Индекс сортировки', default=0)
 
+    def __str__(self):
+        return ' {} гр.'.format(self.weight)
+
     class Meta:
         verbose_name = 'Вес и цена товара'
         verbose_name_plural = 'Вес и цена товара'

@@ -14,8 +14,8 @@ class BaseProductInline(nested_admin.NestedTabularInline):
 
 class OrderGoodsInline(BaseProductInline):
     model = OrderGoods
-    readonly_fields = ['goods', 'count', 'price', 'created_at', ]
-    fields = ['goods', 'count', 'price', 'created_at',]
+    readonly_fields = ['goods', 'count', 'weight', 'price', 'created_at', ]
+    fields = ['goods', 'count', 'weight', 'price', 'created_at',]
 
 
 class OrderModelAdmin(admin.ModelAdmin):
