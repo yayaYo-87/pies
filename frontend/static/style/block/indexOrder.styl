@@ -38,7 +38,8 @@
     display: flex
     justify-content: center
     align-items center
-    margin-bottom: 30px
+    margin-bottom: -26px
+
     &-text{
       margin-top: 140px
       font-size: 68px;
@@ -67,8 +68,85 @@
       transform rotate(180deg)
     }
     .order__slider{
+      min-height: 880px
       display: flex
       justify-content: space-between
+
+      .menu__list_bottom-left{
+        display: flex
+        margin-top: 18px
+      }
+      .menu_count-minus{
+        height: 61px
+        border: 1px solid black;
+        border-radius 0px
+        border-right: 0px
+        color black
+        &:hover{
+          background-color black
+          color: white
+        }
+      }
+      .menu_input-active {
+        font-size: 18px;
+        line-height: 59px;
+        border-radius: 0px;
+        color: #323232;
+        padding-left: 29px;
+        border: 1px solid black;
+        width: 248px;
+        background-color white
+        &:after{
+          position: absolute;
+          top: 25px;
+          right: 17px;
+          background: url('/static/img/button1.png') no-repeat;
+          background-size: 100%;
+          width: 4px;
+          height: 14px;
+          transform rotate(90deg)
+        }
+        &:before{
+          border-left: 1px solid black;
+
+
+        }
+      }
+      .menu_input-popup {
+        top: 61px;
+        width: 100%
+        border-left: 1px solid #000000;
+        border-right: 1px solid #000000;
+        &_item {
+          background: #ffffff;
+          padding: 0 28px;
+          line-height: 54px;
+          border-bottom: 1px solid #000000;
+          &:hover{
+            background-color black
+            color: white
+          }
+        }
+      }
+      .menu_count-plus{
+        margin-right: 30px;
+        height: 61px
+        border: 1px solid black;
+        border-radius 0px
+        border-left: 0px
+        color black
+        &:hover{
+          background-color black
+          color: white
+        }
+      }
+      .menu_count-count{
+        height: 61px
+        width: 90px;
+        background-color white
+        border: 1px solid black;
+        line-height: 61px
+      }
       &_left{
         max-width: 550px
         padding-right: 40px
@@ -90,7 +168,7 @@
         font-weight bold
         padding-top: 50px
         text-transform uppercase
-        padding-bottom: 30px
+        padding-bottom: 10px
       }
       &_text{
         font-size: 29px;
@@ -199,6 +277,49 @@
     font-size 54px
   }
   .index__order_slider {
+    .order__slider {
+      .menu__list_bottom-left {
+        display: flex
+        margin-top: 18px
+      }
+      .menu_count-minus {
+        height: 50px
+      }
+      .menu_input-active {
+        font-size: 15px;
+        line-height: 48px;
+        border-radius: 0px;
+        color: #323232;
+        padding-left: 18px;
+        border: 1px solid black;
+        width: 192px;
+        background-color white
+        &:after {
+          top: 19px;
+        }
+        &:before {
+          border-left: 1px solid black;
+
+        }
+      }
+      .menu_input-popup {
+        top: 50px;
+        &_item {
+          background: #ffffff;
+          padding: 0 18px;
+          font-size 15px
+          line-height: 48px;
+        }
+      }
+      .menu_count-plus {
+        height: 50px
+      }
+      .menu_count-count {
+        height: 50px
+        width: 52px;
+        line-height: 48px
+      }
+    }
     .order__slider_left{
       max-width: 450px
     }

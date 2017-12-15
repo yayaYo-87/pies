@@ -21,20 +21,38 @@
                     </div>
                     <div class="item__text">
                         <div class="item__title">{{ result.name }}</div>
-                        <div class="item__price">{{ result.price }} руб.</div>
+                        <div class="item__price">{{ price }} руб.</div>
                         <div class="item__list" v-if="result.goods_consist.length !== 0">
                             <ol class="item__list-ol">
                                 <li class="item__list-li" v-for="item in result.goods_consist">{{ item.text_item }}</li>
                             </ol>
                         </div>
-                        <div class="item__button">
-                            <div class="item__button_left">
-                                <button class="item__button-sum" @click="countMinus()" :disabled="count === 1">-</button>
-                                <div class="item__button-text">{{ count }}</div>
-                                <button class="item__button-sum" @click="countPlus()">+</button>
+                        <div class="menu__list_bottom">
+                            <div class="menu__list_bottom-left">
+                                <div class="menu_input" v-click-outside="popupClose">
+                                    <div class="menu_input-active"
+                                         :class="{ 'menu_input-active-true': popup === true }"
+                                         @click="popupActive">{{ weightActive }}г.</div>
+                                    <div class="menu_input-popup"
+                                         v-show="popup">
+                                        <div class="menu_input-popup_item"
+                                             :class="{ 'menu_input-popup_item-active' : index === weightActive}"
+                                             v-for="(weight, index) in result.goods_weight"
+                                             @click="pushPrice(weight)"
+                                        >{{ weight.weight }}г.</div>
+                                    </div>
+                                </div>
+                                <div class="menu_count">
+                                    <button class="menu_count-minus"
+                                            :disabled="count <= 1"
+                                            @click="countMinus"
+                                    >-</button>
+                                    <div class="menu_count-count">{{ count }}</div>
+                                    <button class="menu_count-plus" @click="countPlus">+</button>
+                                </div>
                             </div>
-                            <div class="item__button_right">
-                                <button class="item-button" @click="postProduct()" :disabled="dis">Заказать</button>
+                            <div class="menu__list_bottom-right">
+                                <button @click="postProduct(result.id)" class="menu__list_button">Заказать</button>
                             </div>
                         </div>
                         <div class="item__teg">
@@ -84,8 +102,12 @@
     name:'item',
     data() {
       return{
-        count: 1,
         dis: false,
+        popup: false,
+        count: 1,
+        weightActive: 0,
+        weightId: 0,
+        price: 0,
         result: [],
         swiperOption: {
           slidesPerView: 3,
@@ -105,32 +127,76 @@
       '$route.params.item': 'get'
     },
     methods:{
-      countMinus(){
-        this.count = this.count - 1
-      },
-      countPlus(){
-        this.count = this.count + 1
-      },
       get(){
         const self = this;
         const router = this.$route.params.item;
         axios.get('/api/goods/' + router + '/')
           .then(function (response) {
-            self.result =  response.data
-            self.$store.dispatch('loader', { value: false })
+            self.result =  response.data;
+            self.$store.dispatch('loader', { value: false });
+
+            if(self.result.goods_weight[0].discount_price === 0) {
+              self.price = self.result.goods_weight[0].price;
+              self.weightActive = self.result.goods_weight[0].weight;
+              self.weightId = self.result.goods_weight[0].id
+            } else {
+              self.price = self.result.goods_weight[0].discount_price;
+              self.weightActive = self.result.goods_weight[0].weight;
+              self.weightId = self.result.goods_weight[0].id
+            }
+
           })
       },
-      postProduct(){
+      pushPrice(item){
+        this.popup = false;
+        if(item.discount_price === 0) {
+          this.price = item.price
+          this.weightActive = item.weight
+          this.weightId = item.id
+        } else {
+          this.price = item.discount_price
+          this.weightActive = item.weight
+          this.weightId = item.id
+        }
+      },
+      countPlus(){
+        this.count++
+      },
+      countMinus(){
+        this.count--
+      },
+      popupActive(){
+        this.popup = !this.popup
+      },
+      popupClose(){
+        this.popup = false
+      },
+      postProductFair(id){
         const self = this;
-        self.dis = true;
         axios.post('/api/order_goods/', {
-          "goods": self.result.id,
+          "goods": id,
           "count": self.count,
+          "weight": self.weightId,
         }).then(
           function (response) {
             self.$store.dispatch('results');
             self.animatePopup();
-            self.dis = false;
+            self.$router.push({name: 'basket' })
+          },
+          function (error) {
+          }
+        )
+      },
+      postProduct(id){
+        const self = this;
+        axios.post('/api/order_goods/', {
+          "goods": id,
+          "count": self.count,
+          "weight": self.weightId,
+        }).then(
+          function (response) {
+            self.$store.dispatch('results');
+            self.animatePopup();
           },
           function (error) {
           }

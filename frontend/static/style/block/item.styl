@@ -12,6 +12,67 @@
   &__text{
     flex 47%
     margin-left: 40px
+    .menu__list{
+      &_bottom{
+        margin-top: 20px
+        margin-bottom: 20px
+      }
+      &_button{
+        font-size: 20px;
+        padding: 17px 60px 18px 27px;
+        cursor: pointer;
+        position: relative;
+        width: 181px;
+        &:after{
+          top: 22px;
+          right: 22px;
+        }
+      }
+    }
+    .menu_count-count{
+      width: 101px;
+      height: 57px;
+      line-height: 57px
+    }
+    .menu_count-plus {
+      width: 40px;
+      height: 57px;
+      &:hover{
+        background #fdeeef;
+      }
+    }
+    .menu_count-minus {
+      width: 40px;
+      height: 57px;
+      &:hover{
+        background #fdeeef;
+      }
+    }
+    .menu_input{
+      margin-top: 0px
+    }
+    .menu_input-active {
+      line-height: 57px;
+      padding-left: 14px;
+      width: 181px;
+      font-size: 20px;
+      &:after{
+        top: 27px;
+        right: 14px
+      }
+      &:before{
+        width: 40px
+      }
+    }
+    .menu_input-popup {
+      top: 59px;
+      width: 181px
+    }
+    .menu_input-popup_item {
+      padding: 0 14px;
+      line-height: 54px;
+      font-size: 20px;
+    }
   }
   &__title{
     font-size: 25px;

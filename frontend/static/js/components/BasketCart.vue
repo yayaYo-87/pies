@@ -35,7 +35,8 @@
                             <div class="basket_table-text">{{cart.goods.name}}</div>
                         </div>
                     </td>
-                    <td>{{cart.goods.price}} <span class="rubl" > &#8399;</span></td>
+                    <td v-if="cart.weight.discount_price === 0">{{cart.weight.price}} <span class="rubl" > &#8399;</span></td>
+                    <td v-else>{{cart.weight.discount_price}} <span class="rubl" > &#8399;</span></td>
                     <td>
                         <button class="basket_table_minus"
 

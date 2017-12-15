@@ -55,7 +55,6 @@
         weightActive: 0,
         weightId: 0,
         price: 0,
-
       }
     },
     methods:{
@@ -88,7 +87,6 @@
         axios.post('/api/order_goods/', {
           "goods": id,
           "count": self.count,
-          "price": self.price,
           "weight": self.weightId,
         }).then(
           function (response) {
@@ -105,7 +103,6 @@
         axios.post('/api/order_goods/', {
           "goods": id,
           "count": self.count,
-          "price": self.price,
           "weight": self.weightId,
         }).then(
           function (response) {
