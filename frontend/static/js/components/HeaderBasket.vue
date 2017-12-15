@@ -30,7 +30,7 @@
                                 {{cart.goods.name}} <br>
                                 Количество: {{ cart.count }}
                             </div>
-                            <div class="basket-header__item-price">{{cart.goods.price}} <span class="rubl" > &#8399;</span></div>
+                            <div class="basket-header__item-price">{{cart.price}} <span class="rubl" > &#8399;</span></div>
                             <div class="basket-header__item-active" v-if="!cart.active">
                                 <button class="basket-header_button" @click="switchItem(cart.id , 'activate')">
                                     Вернуть обратно
@@ -79,7 +79,7 @@
         axios.post('/api/order_goods/' + id + '/'+ inc +'/')
           .then((response) => {
             if (response.status === 200) {
-              let self = this
+              let self = this;
               self.$store.dispatch('results')
             }
           })

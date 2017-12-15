@@ -1,14 +1,15 @@
 <template>
-    <div class="menu__list_item">
+    <div class="menu__list_item" >
         <div class="menu__list_cover">
-            <img :src="result.cover" alt="cover">
+            <img :src="itemProduct.cover" alt="cover">
             <div class="menu__list_hover">
-                <router-link :to="{ name:'item', params: { item: id } }" class="menu__list_hover-top">Быстрый просмотр</router-link>
-                <div class="menu__list_hover-bottom" @click="postProductFair(id)">Быстрый заказ</div>
+                <router-link :to="{ name:'item', params: { id: $route.params.id, item: itemProduct.id } }"
+                             class="menu__list_hover-top">Быстрый просмотр</router-link>
+                <div @click="postProductFair(itemProduct.id)" class="menu__list_hover-bottom">Быстрый заказ</div>
             </div>
         </div>
         <div class="menu__list_desc">
-            <div class="menu__list_title">{{ result.name }}</div>
+            <div class="menu__list_title">{{ itemProduct.name }}</div>
         </div>
         <div class="menu__list_bottom">
             <div class="menu__list_bottom-left">
@@ -20,7 +21,7 @@
                          v-show="popup">
                         <div class="menu_input-popup_item"
                              :class="{ 'menu_input-popup_item-active' : index === weightActive}"
-                             v-for="(weight, index) in result.goods_weight"
+                             v-for="(weight, index) in itemProduct.goods_weight"
                              @click="pushPrice(weight)"
                         >{{ weight.weight }}</div>
                     </div>
@@ -36,7 +37,7 @@
             </div>
             <div class="menu__list_bottom-right">
                 <div class="menu__list_price">{{ price }} руб.</div>
-                <button @click="postProduct(result.id)" class="menu__list_button">Заказать</button>
+                <button @click="postProduct(itemProduct.id)" class="menu__list_button">Заказать</button>
             </div>
         </div>
     </div>
@@ -46,10 +47,9 @@
   import axios from 'axios'
 
   export default {
-    props: ['id'],
-    data(){
-      return{
-        result: [],
+    props: ['itemProduct'],
+    data() {
+      return {
         popup: false,
         count: 1,
         weightActive: 0,
@@ -58,34 +58,6 @@
       }
     },
     methods:{
-      get(){
-        const self = this;
-
-        axios.get('/api/goods/' + self.id + '/')
-          .then(function (response) {
-            self.result =  response.data;
-            if(self.result.goods_weight[0].discount_price === 0) {
-              self.price = self.result.goods_weight[0].price;
-              self.weightActive = self.result.goods_weight[0].weight;
-              self.weightId = self.result.goods_weight[0].id
-            } else {
-              self.price = self.result.goods_weight[0].discount_price;
-              self.weightActive = self.result.goods_weight[0].weight;
-              self.weightId = self.result.goods_weight[0].id
-            }
-          })
-      },
-      animatePopup(){
-        const newDiv = document.createElement('div');
-        newDiv.classList.add('popup')
-        newDiv.innerHTML = 'Товар добавлен в корзину';
-
-        document.body.appendChild(newDiv)
-
-        setTimeout(function () {
-          document.body.removeChild(newDiv)
-        }, 3000)
-      },
       pushPrice(item){
         this.popup = false;
         if(item.discount_price === 0) {
@@ -141,13 +113,28 @@
           }
         )
       },
-    },
-    created() {
-      this.get()
+      animatePopup(){
+        const newDiv = document.createElement('div');
+        newDiv.classList.add('popup')
+        newDiv.innerHTML = 'Товар добавлен в корзину';
+
+        document.body.appendChild(newDiv)
+
+        setTimeout(function () {
+          document.body.removeChild(newDiv)
+        }, 3000)
+      }
     },
     mounted(){
-
+      if(this.itemProduct.goods_weight[0].discount_price === 0) {
+        this.price = this.itemProduct.goods_weight[0].price
+        this.weightActive = this.itemProduct.goods_weight[0].weight
+        this.weightId = this.itemProduct.goods_weight[0].id
+      } else {
+        this.price = this.itemProduct.goods_weight[0].discount_price
+        this.weightActive = this.itemProduct.goods_weight[0].weight
+        this.weightId = this.itemProduct.goods_weight[0].id
+      }
     }
-
   }
 </script>

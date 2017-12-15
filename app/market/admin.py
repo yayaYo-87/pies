@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.utils.safestring import mark_safe
 
-from app.market.models import Category, Tag, GoodsConsist, Goods
+from app.market.models import Category, Tag, GoodsConsist, Goods, GoodsWeight
 
 
 @admin.register(Category)
@@ -42,6 +42,13 @@ class GoodsConsistInline(admin.TabularInline):
     suit_classes = 'suit-tab suit-tab-consist'
 
 
+class GoodsWeightInline(admin.TabularInline):
+    model = GoodsWeight
+    fields = ['weight', 'price', 'discount_price', 'sort_index']
+    extra = 0
+    suit_classes = 'suit-tab suit-tab-general'
+
+
 @admin.register(Goods)
 class GoodsAdmin(admin.ModelAdmin):
     model = Goods
@@ -55,7 +62,7 @@ class GoodsAdmin(admin.ModelAdmin):
                     'name',
                     'articul',
                     'category',
-                    'price',
+                    # 'price',
                     'title',
                     'description',
                     'shot_description',
@@ -91,7 +98,7 @@ class GoodsAdmin(admin.ModelAdmin):
         )
     ]
     filter_horizontal = ['related_goods', 'tag', 'category']
-    inlines = [GoodsConsistInline, ]
+    inlines = [GoodsConsistInline, GoodsWeightInline]
     readonly_fields = ['image_img', ]
 
     def image_img(self, obj):

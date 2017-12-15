@@ -9,23 +9,10 @@
                     <swiper-slide
                             :key="index"
                             v-for="(item, index) in result">
-                        <div class="order__slider">
-                            <div class="order__slider_left">
-                                <div class="order__slider_title">{{ item.goods.name }}</div>
-                                <div class="order__slider_text">{{ item.goods.shot_description }}</div>
-                                <div class="order__slider_desc">Sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea</div>
-                                <div class="order__slider_button">
-                                    <button class="order__slider_button-left" @click="postProductFair(item.goods.id)">Заказать</button>
-                                    <router-link
-                                            tag="button"
-                                            :to="{ name: 'item', params: {id: 'all', item: item.goods.id } }"
-                                            class="order__slider_button-right">Узнать подробнее</router-link>
-                                </div>
-                            </div>
-                            <div class="order__slider_right">
-                                <img :src="item.goods.cover" alt="cover">
-                            </div>
-                        </div>
+                            <item-order
+                                :item="item.goods"
+                                :key="index"
+                            ></item-order>
                     </swiper-slide>
                     <div class="swiper-button-prev" slot="button-prev"></div>
                     <div class="swiper-button-next" slot="button-next"></div>
@@ -37,6 +24,7 @@
 
 <script>
   import axios from 'axios'
+  import itemOrder from '../components/IndexOrderItem.vue'
   export default {
     props: ['result'],
     data(){
@@ -49,6 +37,9 @@
         }
 
       }
+    },
+    components:{
+      itemOrder
     },
     methods:{
       postProductFair(id){

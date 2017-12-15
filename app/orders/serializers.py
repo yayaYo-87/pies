@@ -1,25 +1,33 @@
 from rest_framework import serializers
 
-from app.market.models import Goods
+from app.market.models import Goods, GoodsWeight
 from app.orders.models import OrderGoods, Cart, Order
 
 
 class GoodsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Goods
-        fields = ['id', 'name', 'price', 'category', 'cover', 'title']
+        fields = ['id', 'name', 'category', 'cover', 'title']
+
+
+class GoodsWeightSerialiser(serializers.ModelSerializer):
+    class Meta:
+        model = GoodsWeight
+        fields = ['id', 'weight', 'price', 'discount_price']
 
 
 class OrderGoodsSerializer(serializers.ModelSerializer):
     price = serializers.FloatField(read_only=True)
     goods = GoodsSerializer()
+    weight = GoodsWeightSerialiser()
 
     class Meta:
         model = OrderGoods
-        fields = ['id', 'goods', 'count', 'price', 'created_at', 'active', 'cart', 'order']
+        fields = ['id', 'goods', 'count', 'price', 'created_at', 'active', 'cart', 'order', 'weight']
 
     def to_internal_value(self, data):
         self.fields['goods'] = serializers.PrimaryKeyRelatedField(queryset=Goods.objects.all())
+        self.fields['weight'] = serializers.PrimaryKeyRelatedField(queryset=GoodsWeight.objects.all())
         return super(OrderGoodsSerializer, self).to_internal_value(data)
 
     def create(self, validated_data):

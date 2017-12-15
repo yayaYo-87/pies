@@ -5,26 +5,11 @@
         </div>
         <div class="index__popular_wrapper">
             <div class="index__popular_items">
-
-                <div class="index__popular_item"
-                     v-for="item in result">
-                    <div class="popular_img">
-                        <img :src="item.goods.cover" alt="cover" class="index__popular_img-cover">
-                        <div class="popular_img-wrapper">
-                            <router-link tag="div" :to="{ name: 'item', params: { id: 'all', item: item.goods.id } }"
-                                         class="popular_img-top">Быстрый просмотр
-                                <span>
-                                    <img src="/static/img/lypa.png" alt="cover">
-                                </span>
-                            </router-link>
-                            <div class="popular_img-bottom" @click="postProductFair(item.goods.id)">Быстрый заказ <span><img src="/static/img/fire.png" alt="cover"></span></div>
-                        </div>
-                    </div>
-                    <div class="popular_item-text">
-                        <div class="popular_item-title">{{ item.goods.name }}</div>
-                        <div class="popular_item-desc">{{ item.goods.shot_description }}</div>
-                    </div>
-                </div>
+                <index-popular-item
+                        v-for="(item, index) in result"
+                        :key="index"
+                        :item="item.goods"
+                ></index-popular-item>
             </div>
 
         </div>
@@ -36,6 +21,7 @@
 
 <script>
   import axios from 'axios'
+  import indexPopularItem from '../components/IndexPopularItem.vue'
 
   export default {
     props: ['result'],
@@ -45,34 +31,10 @@
 
       }
     },
+    components:{
+      indexPopularItem
+    },
     methods:{
-      postProductFair(id){
-        const self = this;
-        axios.post('/api/order_goods/', {
-          "goods": id,
-          "count": 1,
-        }).then(
-          function (response) {
-            self.$store.dispatch('results');
-            self.animatePopup();
-            self.$router.push({name: 'basket' })
-          },
-          function (error) {
-          }
-        )
-      },
-      animatePopup(){
-        const newDiv = document.createElement('div');
-        newDiv.classList.add('popup')
-        newDiv.innerHTML = 'Товар добавлен в корзину';
-
-        document.body.appendChild(newDiv)
-
-        setTimeout(function () {
-          document.body.removeChild(newDiv)
-        }, 3000)
-      },
-
     }
   }
 </script>
