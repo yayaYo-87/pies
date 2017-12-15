@@ -16,14 +16,14 @@
                 <div class="menu_input" v-click-outside="popupClose">
                     <div class="menu_input-active"
                          :class="{ 'menu_input-active-true': popup === true }"
-                         @click="popupActive">{{ weightActive }}</div>
+                         @click="popupActive">{{ weightActive }}г.</div>
                     <div class="menu_input-popup"
                          v-show="popup">
                         <div class="menu_input-popup_item"
                              :class="{ 'menu_input-popup_item-active' : index === weightActive}"
                              v-for="(weight, index) in itemProduct.goods_weight"
                              @click="pushPrice(weight)"
-                        >{{ weight.weight }}</div>
+                        >{{ weight.weight }}г.</div>
                     </div>
                 </div>
                 <div class="menu_count">
