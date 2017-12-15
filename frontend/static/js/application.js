@@ -12,11 +12,16 @@ Vue.config.productionTip = false
 //Плагины
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
+import Meta from 'vue-meta';
+
 
 require('swiper/dist/css/swiper.css')
 Vue.use(VueAwesomeSwiper);
-
+Vue.use(Meta);
 Vue.use(Vue2Filters);
+
+
+
 
 Vue.directive('click-outside', {
   bind: function(el, binding, vNode) {

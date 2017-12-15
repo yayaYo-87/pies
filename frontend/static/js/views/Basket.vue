@@ -20,7 +20,7 @@
                     <img src="/static/img/basket2.png" alt="cover">
                 </div>
                 <div class="basket__item"
-                :class="{'basket__item-active' : validation === 3}"
+                     :class="{'basket__item-active' : validation === 3}"
                 >
                     <img src="/static/img/basket3.png" alt="cover">
                 </div>
@@ -39,6 +39,22 @@
   import basketEnd from '../components/BasketEnd.vue'
 
   export default {
+    metaInfo () {
+      return {
+        title: 'Корзина',
+        titleTemplate: '%s | Осетинские пироги',
+        meta: [
+          {
+            name: 'description' ,
+            content: 'Пекарня «Всё о пирогах» — это специализированная компания, выпекающая осетинские пироги по традиционной и оригинальной рецептуре, в полном соответствии с современными технологиями и установленными стандартами.'
+          },
+          {
+            name: 'keywords',
+            content: 'Пекарня «Всё о пирогах»  выпекающая осетинские пироги по традиционной и оригинальной рецептуре'
+          },
+        ]
+      }
+    },
     data(){
       return{
 
