@@ -26,7 +26,7 @@
                 </div>
             </div>
         </div>
-        <basket-cart ></basket-cart>
+        <basket-cart></basket-cart>
         <basket-info></basket-info>
         <basket-end></basket-end>
     </div>

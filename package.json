@@ -9,6 +9,8 @@
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
   "dependencies": {
+    "html-webpack-plugin": "^2.30.1",
+    "prerender-spa-plugin": "^2.1.0",
     "vue": "^2.3.3",
     "vue-meta": "^1.4.0"
   },
