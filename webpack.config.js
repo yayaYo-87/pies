@@ -3,6 +3,8 @@ const webpack = require('webpack')
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const NODE_ENV = process.env.NODE_ENV || 'development';
 const CompressionPlugin = require("compression-webpack-plugin");
+const PrerenderSpaPlugin = require('prerender-spa-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry:  ['babel-polyfill', './frontend/static/js/application.js'],
@@ -83,6 +85,7 @@ module.exports = {
         return module.context && module.context.indexOf("node_modules") !== -1;
       }
     }),
+
     new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
     new ExtractTextPlugin("css/[name].css?[hash]"),
@@ -120,6 +123,34 @@ if (process.env.NODE_ENV === 'production') {
         NODE_ENV: '"production"'
       }
     }),
+    new HtmlWebpackPlugin({
+      template:  path.resolve('./frontend/templates/index.html'),
+      filename: path.resolve(__dirname, './frontend/static/dist/index.html'),
+    }),
+    new PrerenderSpaPlugin(
+      // Absolute path to compiled SPA
+      path.join(__dirname, './frontend/static/dist'),
+      // List of routes to prerender
+      [ '/', '/menu/all', '/about', '/discount', '/shipping', '/contacts', '/basket' ],
+      {
+        postProcessHtml: function (context) {
+          var titles = {
+            '/': 'Осетинские пироги ',
+            '/about': 'О нас | Осетинские пироги',
+            '/contacts': 'Контакты | Осетинские пироги',
+            '/basket': 'Корзина | Осетинские пироги',
+            '/shipping': 'Доставка | Осетинские пироги',
+            '/discount': 'Скидки | Осетинские пироги',
+            '/menu/all': 'Меню | Осетинские пироги',
+          }
+          return context.html.replace(
+            /<title>[^<]*<\/title>/i,
+            '<title>' + titles[context.route] + '</title>'
+          )
+        }
+
+      }
+    ),
     new webpack.optimize.UglifyJsPlugin({
       beautify: false,
       comments: false,
