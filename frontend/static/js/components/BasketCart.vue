@@ -16,7 +16,6 @@
                     <th class="basket_width">Итого</th>
                 </tr>
                 <tr v-for="cart in  basket.results.cart_goods">
-
                     <td>
                         <div class="basket_table-active">
                             <div class="basket_table-close" @click="switchItem(cart.id, 'deactivate')">+</div>
@@ -32,7 +31,10 @@
                             <div class="basket_table-img">
                                 <img :src="cart.goods.cover" alt="cover">
                             </div>
-                            <div class="basket_table-text">{{cart.goods.name}}</div>
+                            <div class="basket_table-text">{{cart.goods.name}}<br>
+                                Вес: {{ cart.weight.weight }} г.
+                            </div>
+
                         </div>
                     </td>
                     <td v-if="cart.weight.discount_price === 0">{{cart.weight.price}} <span class="rubl" > &#8399;</span></td>

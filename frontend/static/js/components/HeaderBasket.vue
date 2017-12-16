@@ -28,7 +28,8 @@
                             </router-link>
                             <div class="basket-header__item-desc">
                                 {{cart.goods.name}} <br>
-                                Количество: {{ cart.count }}
+                                Количество: {{ cart.count }} <br>
+                                Вес: {{ cart.weight.weight }} г.
                             </div>
                             <div class="basket-header__item-price">{{cart.price}} <span class="rubl" > &#8399;</span></div>
                             <div class="basket-header__item-active" v-if="!cart.active">
