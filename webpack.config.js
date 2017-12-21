@@ -3,8 +3,8 @@ const webpack = require('webpack')
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const NODE_ENV = process.env.NODE_ENV || 'development';
 const CompressionPlugin = require("compression-webpack-plugin");
-const PrerenderSpaPlugin = require('prerender-spa-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+// const PrerenderSpaPlugin = require('prerender-spa-plugin');
+// const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry:  ['babel-polyfill', './frontend/static/js/application.js'],
@@ -126,13 +126,17 @@ if (process.env.NODE_ENV === 'production') {
     // new HtmlWebpackPlugin({
     //   template:  path.resolve('./frontend/templates/index.html'),
     //   filename: path.resolve(__dirname, './frontend/static/dist/index.html'),
+    //   inject: 'head',
+    //   chunksSortMode: 'dependency'
     // }),
     // new PrerenderSpaPlugin(
     //   // Absolute path to compiled SPA
     //   path.join(__dirname, './frontend/static/dist'),
     //   // List of routes to prerender
-    //   [ '/', '/menu/all', '/about', '/discount', '/shipping', '/contacts', '/basket' ],
+    //   [ '/', '/menu/all', '/about', '/discount', '/shipping', '/contacts', '/basket', '/menu/all/3' ],
     //   {
+    //     captureAfterTime: 10000,
+    //     ignoreJSErrors: true,
     //     postProcessHtml: function (context) {
     //       var titles = {
     //         '/': 'Осетинские пироги ',

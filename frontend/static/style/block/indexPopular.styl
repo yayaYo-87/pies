@@ -126,9 +126,9 @@
       line-height: 59px;
       border-radius: 0px;
       color: #323232;
-      padding-left: 29px;
+      padding-left: 20px;
       border: 1px solid black;
-      width: 248px;
+      width: 150px;
       background-color white
       &:after{
         position: absolute;
@@ -142,8 +142,6 @@
       }
       &:before{
         border-left: 1px solid black;
-
-
       }
     }
     .menu_input-popup {
@@ -153,7 +151,7 @@
       border-right: 1px solid #000000;
       &_item {
         background: #ffffff;
-        padding: 0 28px;
+        padding: 0 20px;
         line-height: 54px;
         border-bottom: 1px solid #000000;
         &:hover{
@@ -162,8 +160,20 @@
         }
       }
     }
+    .menu__list_button{
+      background-color white
+      border 1px solid black
+      color: #000
+      border-radius 0
+      padding: 0px
+      height: 61px
+      margin-top: 10px;
+      &:after{
+        content none
+      }
+    }
     .menu_count-plus{
-      margin-right: 30px;
+      margin-right: 0px;
       height: 61px
       border: 1px solid black;
       border-radius 0px
@@ -176,7 +186,7 @@
     }
     .menu_count-count{
       height: 61px
-      width: 90px;
+      width: 74px;
       background-color white
       border: 1px solid black;
       line-height: 61px
@@ -294,7 +304,7 @@
       color: #323232;
       padding-left: 18px;
       border: 1px solid black;
-      width: 192px;
+      width: 120px;
       background-color white
       &:after {
         top: 19px;
@@ -303,6 +313,11 @@
         border-left: 1px solid black;
 
       }
+    }
+    .menu__list_button{
+      height: 50px
+      font-size 14px
+      width: 120px
     }
     .menu_input-popup {
       top: 50px;
@@ -384,10 +399,23 @@
       bottom: -250px;
     }
   }
+  .index__popular{
+    .menu__list_button{
+      height: 50px
+      font-size 14px
+      width: 100px
+    }
+    .menu_input-active{
+      width: 110px
+    }
+    .menu_count-count{
+      width: 40px
+    }
+  }
+
   .index__popular_items{
     max-width: 1100px
   }
-
   .index__popular_item{
     margin-bottom: 40px;
     margin-right: 30px
@@ -434,5 +462,6 @@
     .popular_button{
       bottom: 130px
     }
+
   }
 }
